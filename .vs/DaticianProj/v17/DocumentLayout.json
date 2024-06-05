@@ -7,56 +7,8 @@
       "RelativeMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|c:\\users\\hp\\source\\repos\\daticianproj\\core\\application\\services\\mailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|solutionrelative:core\\application\\services\\mailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|c:\\users\\hp\\source\\repos\\daticianproj\\core\\application\\services\\verificationcodeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|solutionrelative:core\\application\\services\\verificationcodeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|c:\\users\\hp\\source\\repos\\daticianproj\\controllers\\verificationcodecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|solutionrelative:controllers\\verificationcodecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|c:\\users\\hp\\source\\repos\\daticianproj\\controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|solutionrelative:controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|c:\\users\\hp\\source\\repos\\daticianproj\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|solutionrelative:controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|c:\\users\\hp\\source\\repos\\daticianproj\\controllers\\userinteractionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|solutionrelative:controllers\\userinteractionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|c:\\users\\hp\\source\\repos\\daticianproj\\core\\application\\services\\mailaddressverification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|solutionrelative:core\\application\\services\\mailaddressverification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|c:\\users\\hp\\source\\repos\\daticianproj\\core\\application\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|solutionrelative:core\\application\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|c:\\users\\hp\\source\\repos\\daticianproj\\models\\verificationcodedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|solutionrelative:models\\verificationcodedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|c:\\users\\hp\\source\\repos\\daticianproj\\models\\mailrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|solutionrelative:models\\mailrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|c:\\users\\hp\\source\\repos\\daticianproj\\core\\application\\interfaces\\services\\iverificationcodeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|solutionrelative:core\\application\\interfaces\\services\\iverificationcodeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|c:\\users\\hp\\source\\repos\\daticianproj\\infrastructure\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|solutionrelative:infrastructure\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|c:\\users\\hp\\source\\repos\\daticianproj\\infrastructure\\repositories\\verificationcoderepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|solutionrelative:infrastructure\\repositories\\verificationcoderepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|c:\\users\\hp\\source\\repos\\daticianproj\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -76,166 +28,23 @@
               "RelativeDocumentMoniker": "appsettings.json",
               "ToolTip": "C:\\Users\\HP\\source\\repos\\DaticianProj\\appsettings.json",
               "RelativeToolTip": "appsettings.json",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAAABgAAAAoAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAADAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-06-05T18:00:50.549Z",
+              "WhenOpened": "2024-06-05T19:59:35.422Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "VerificationCodeService.cs",
-              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Core\\Application\\Services\\VerificationCodeService.cs",
-              "RelativeDocumentMoniker": "Core\\Application\\Services\\VerificationCodeService.cs",
-              "ToolTip": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Core\\Application\\Services\\VerificationCodeService.cs",
-              "RelativeToolTip": "Core\\Application\\Services\\VerificationCodeService.cs",
-              "ViewState": "AQIAAAUAAAAAAAAAAAAxwHAAAAARAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-05T17:58:51.977Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "UserController.cs",
-              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Controllers\\UserController.cs",
-              "RelativeDocumentMoniker": "Controllers\\UserController.cs",
-              "ToolTip": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Controllers\\UserController.cs",
-              "RelativeToolTip": "Controllers\\UserController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-05T17:56:38.487Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "VerificationCodeController.cs",
-              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Controllers\\VerificationCodeController.cs",
-              "RelativeDocumentMoniker": "Controllers\\VerificationCodeController.cs",
-              "ToolTip": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Controllers\\VerificationCodeController.cs",
-              "RelativeToolTip": "Controllers\\VerificationCodeController.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-05T17:56:24.162Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "AuthenticationController.cs",
-              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Controllers\\AuthenticationController.cs",
-              "RelativeDocumentMoniker": "Controllers\\AuthenticationController.cs",
-              "ToolTip": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Controllers\\AuthenticationController.cs",
-              "RelativeToolTip": "Controllers\\AuthenticationController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-05T17:56:18.483Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "MailService.cs",
-              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Core\\Application\\Services\\MailService.cs",
-              "RelativeDocumentMoniker": "Core\\Application\\Services\\MailService.cs",
-              "ToolTip": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Core\\Application\\Services\\MailService.cs",
-              "RelativeToolTip": "Core\\Application\\Services\\MailService.cs",
-              "ViewState": "AQIAAEgAAAAAAAAAAAAAAGsAAAAAAAAA",
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAA+AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-05T17:53:17.573Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "UserInteractionsController.cs",
-              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Controllers\\UserInteractionsController.cs",
-              "RelativeDocumentMoniker": "Controllers\\UserInteractionsController.cs",
-              "ToolTip": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Controllers\\UserInteractionsController.cs",
-              "RelativeToolTip": "Controllers\\UserInteractionsController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-05T17:56:30.006Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "MailAddressVerification.cs",
-              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Core\\Application\\Services\\MailAddressVerification.cs",
-              "RelativeDocumentMoniker": "Core\\Application\\Services\\MailAddressVerification.cs",
-              "ToolTip": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Core\\Application\\Services\\MailAddressVerification.cs",
-              "RelativeToolTip": "Core\\Application\\Services\\MailAddressVerification.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-05T17:56:12.646Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "UserService.cs",
-              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Core\\Application\\Services\\UserService.cs",
-              "RelativeDocumentMoniker": "Core\\Application\\Services\\UserService.cs",
-              "ToolTip": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Core\\Application\\Services\\UserService.cs",
-              "RelativeToolTip": "Core\\Application\\Services\\UserService.cs",
-              "ViewState": "AQIAACQAAAAAAAAAAAAYwHgAAAAjAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-05T17:53:01.266Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "VerificationCodeDto.cs",
-              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Models\\VerificationCodeDto.cs",
-              "RelativeDocumentMoniker": "Models\\VerificationCodeDto.cs",
-              "ToolTip": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Models\\VerificationCodeDto.cs",
-              "RelativeToolTip": "Models\\VerificationCodeDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-05T17:52:37.821Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "MailRequest.cs",
-              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Models\\MailRequest.cs",
-              "RelativeDocumentMoniker": "Models\\MailRequest.cs",
-              "ToolTip": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Models\\MailRequest.cs",
-              "RelativeToolTip": "Models\\MailRequest.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-05T17:52:22.911Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "UserRepository.cs",
-              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Infrastructure\\Repositories\\UserRepository.cs",
-              "RelativeDocumentMoniker": "Infrastructure\\Repositories\\UserRepository.cs",
-              "ToolTip": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Infrastructure\\Repositories\\UserRepository.cs",
-              "RelativeToolTip": "Infrastructure\\Repositories\\UserRepository.cs",
-              "ViewState": "AQIAAB8AAAAAAAAAAAAkwAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-05T16:19:52.841Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "IVerificationCodeService.cs",
-              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Core\\Application\\Interfaces\\Services\\IVerificationCodeService.cs",
-              "RelativeDocumentMoniker": "Core\\Application\\Interfaces\\Services\\IVerificationCodeService.cs",
-              "ToolTip": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Core\\Application\\Interfaces\\Services\\IVerificationCodeService.cs",
-              "RelativeToolTip": "Core\\Application\\Interfaces\\Services\\IVerificationCodeService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-05T15:59:47.391Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "VerificationCodeRepository.cs",
-              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Infrastructure\\Repositories\\VerificationCodeRepository.cs",
-              "RelativeDocumentMoniker": "Infrastructure\\Repositories\\VerificationCodeRepository.cs",
-              "ToolTip": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Infrastructure\\Repositories\\VerificationCodeRepository.cs",
-              "RelativeToolTip": "Infrastructure\\Repositories\\VerificationCodeRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-05T16:00:53.59Z"
+              "WhenOpened": "2024-06-05T19:55:32.072Z",
+              "EditorCaption": ""
             }
           ]
         }
