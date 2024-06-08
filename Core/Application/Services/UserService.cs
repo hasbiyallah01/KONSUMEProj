@@ -1,13 +1,14 @@
 ﻿using DaticianProj.Core.Application.Interfaces.Repositories;
 using DaticianProj.Core.Application.Interfaces.Services;
 using DaticianProj.Core.Domain.Entities;
-using DaticianProj.Infrastructure.Repositories;
+using DaticianProj.Core.Domain.Enum;
 using DaticianProj.Models;
 using DaticianProj.Models.UserModel;
 using Google.Apis.Auth;
 using KonsumeTestRun.Core.Application.Interfaces.Repositories;
-using Org.BouncyCastle.Asn1.Ocsp;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Project.Models.Entities;
+using sib_api_v3_sdk.Model;
 using System.Security.Claims;
 using static Google.Apis.Auth.GoogleJsonWebSignature;
 
@@ -19,16 +20,16 @@ namespace DaticianProj.Core.Application.Services
         private readonly IUserRepository _userRepository;
         private readonly IRoleRepository _roleRepository;
         private readonly IUnitOfWork _unitOfWork;
-        private readonly IMailService _mailService;
         private readonly IVerificationCodeRepository _verificationCodeRepository;
-        public UserService(IUserRepository userRepository, IRoleRepository roleRepository, IUnitOfWork unitOfWork, IHttpContextAccessor httpContext,IMailService mailService, IVerificationCodeRepository verificationCodeRepository)
+        private readonly IEmailService _emailService;
+        public UserService(IUserRepository userRepository, IRoleRepository roleRepository, IUnitOfWork unitOfWork, IHttpContextAccessor httpContext, IVerificationCodeRepository verificationCodeRepository, IEmailService emailService)
         {
             _userRepository = userRepository;
             _roleRepository = roleRepository;
             _unitOfWork = unitOfWork;
             _httpContext = httpContext;
-            _mailService = mailService;
             _verificationCodeRepository = verificationCodeRepository;
+            _emailService = emailService;
         }
 
         public async Task<GoogleUser> ValidateToken(string token)
@@ -43,16 +44,15 @@ namespace DaticianProj.Core.Application.Services
                 LastName = payload.FamilyName,
             };
         }
+        private static readonly Random random = new Random();
 
-        
-
-        public async Task<BaseResponse> CreateUser(UserRequest request)
+        public async Task<BaseResponse<UserResponse>> CreateUser(UserRequest request)
         {
-            int random = new Random().Next(10000, 99999);
+            int randomCode = random.Next(10000, 99999);
             var exists = await _userRepository.ExistsAsync(request.Email);
             if (exists)
             {
-                return new BaseResponse
+                return new BaseResponse<UserResponse>
                 {
                     Message = "Email already exists!!!",
                     IsSuccessful = false
@@ -61,7 +61,7 @@ namespace DaticianProj.Core.Application.Services
 
             if (request.Password != request.ConfirmPassword)
             {
-                return new BaseResponse
+                return new BaseResponse<UserResponse>
                 {
                     Message = "Password does not match",
                     IsSuccessful = false
@@ -71,9 +71,9 @@ namespace DaticianProj.Core.Application.Services
             var role = await _roleRepository.GetAsync(r => r.Name.ToLower() == "patient");
             if (role == null)
             {
-                return new BaseResponse
+                return new BaseResponse<UserResponse>
                 {
-                    Message = "Role does not exists",
+                    Message = "Role does not exist",
                     IsSuccessful = false
                 };
             }
@@ -84,14 +84,8 @@ namespace DaticianProj.Core.Application.Services
                 Password = request.Password,
                 FirstName = request.FirstName,
                 LastName = request.LastName,
-                DateOfBirth = request.DateOfBirth,
                 DateCreated = DateTime.UtcNow,
-                Gender = (Domain.Enum.Gender)request.Gender,
-                Height = request.Height,
                 IsDeleted = false,
-                PhoneNumber = request.PhoneNumber,
-                UserGoal = request.UserGoal,
-                Weight = request.Weight,
                 RoleId = role.Id,
                 Role = role,
                 CreatedBy = "1"
@@ -100,31 +94,53 @@ namespace DaticianProj.Core.Application.Services
             role.Users.Add(user);
             _roleRepository.Update(role);
             var newUser = await _userRepository.AddAsync(user);
-            await _unitOfWork.SaveAsync();
             var code = new VerificationCode
             {
-                Code = random,
-                UserId = user.Id
+                Code = randomCode,
+                UserId = newUser.Id
             };
             await _verificationCodeRepository.Create(code);
-            await _verificationCodeRepository.Save();
 
+            try
+            {
+                var mailRequest = new MailRequests
+                {
+                    Subject = "Confirmation Code",
+                    ToEmail = user.Email,
+                    Title = "Your Confirmation Code",
+                    HtmlContent = $"<html><body><h1>Hello {user.FirstName}, Welcome KONSUME.</h1><h4>Your confirmation code is {code.Code} to continue with the registration</h4></body></html>",
+                };
 
-            var mailRequest = new MailRequest
+                await _emailService.SendEmailAsync(new MailRecieverDto { Name = user.FirstName, Email = user.Email }, mailRequest);
+            }
+            catch (Exception ex)
             {
-                Subject = "Confirmation Code",
-                ToEmail = user.Email,
-                ToName = user.FirstName,
-                HtmlContent = $"<html><body><h1>Hello {user.FirstName}, Welcome KONSUME.</h1><h4>Your confirmation code is {code.Code} to continue with the registration</h4></body></html>",
-            };
-            _mailService.SendEmail(mailRequest);
-            return new BaseResponse
+                Console.WriteLine($"Error occurred while sending email: {ex.Message}");
+                return new BaseResponse<UserResponse>
+                {
+                    Message = $"An error occurred while sending email{ex.Message}",
+                    IsSuccessful = false
+                };
+            }
+            await _unitOfWork.SaveAsync();
+            return new BaseResponse<UserResponse>
             {
-                Message = "User created successfully",
-                IsSuccessful = true
+                Message = "Check Your Mail And Complete Your Registration",
+                IsSuccessful = true,
+                Value = new UserResponse
+                {
+                    Id = user.Id,
+                    FullName = user.FirstName + " " + user.LastName,
+                    Email = user.Email,
+                    RoleId = user.RoleId,
+                    RoleName = user.Role.Name,
+                    Role = user.Role,
+                }
             };
         }
 
+
+        
 
 
         public async Task<BaseResponse> CreateUserUsingAuthAsync(string token, UserRequest request)
@@ -180,14 +196,8 @@ namespace DaticianProj.Core.Application.Services
                 Password = request.Password,
                 FirstName = payload.GivenName,
                 LastName = payload.FamilyName,
-                DateOfBirth = request.DateOfBirth,
                 DateCreated = DateTime.UtcNow,
-                Gender = (Domain.Enum.Gender)(int)request.Gender,
-                Height = request.Height,
                 IsDeleted = false,
-                PhoneNumber = request.PhoneNumber,
-                UserGoal = request.UserGoal,
-                Weight = request.Weight,
                 RoleId = role.Id,
                 Role = role,
                 CreatedBy = "1"
@@ -219,17 +229,10 @@ namespace DaticianProj.Core.Application.Services
                 {
                     Id = user.Id,
                     FullName = user.FirstName + " " + user.LastName,
-                    Age = DateTime.Now.Year - user.DateOfBirth.Year,
                     Email = user.Email,
                     RoleId = user.RoleId,
                     RoleName = user.Role.Name,
-                    DateOfBirth = user.DateOfBirth,
-                    Gender =(Domain.Enum.Gender)(int) user.Gender,
-                    Height = user.Height,
-                    PhoneNumber = user.PhoneNumber,
                     Role = user.Role,
-                    Weight = user.Weight,
-                    UserGoal = user.UserGoal,
                 }).ToList(),
             };
         }
@@ -254,17 +257,10 @@ namespace DaticianProj.Core.Application.Services
                 {
                     Id = user.Id,
                     FullName = user.FirstName + " " + user.LastName,
-                    Age = DateTime.Now.Year - user.DateOfBirth.Year,
                     Email = user.Email,
                     RoleId = role.Id,
                     RoleName = role.Name,
-                    DateOfBirth = user.DateOfBirth,
-                    Gender = (Domain.Enum.Gender)(int)user.Gender,
-                    Height = user.Height,
-                    PhoneNumber = user.PhoneNumber,
                     Role = user.Role,
-                    Weight = user.Weight,
-                    UserGoal = user.UserGoal,
                 }
             };
         }
@@ -341,9 +337,6 @@ namespace DaticianProj.Core.Application.Services
             user.LastName = request.LastName;
             user.Email = request.Email;
             user.Password = request.Password;
-            user.DateOfBirth = request.DateOfBirth;
-            user.PhoneNumber = request.PhoneNumber;
-            user.Gender = (Domain.Enum.Gender)(int)request.Gender;
             user.IsDeleted = false;
             user.RoleId = role.Id;
             user.Role = role;
@@ -383,17 +376,10 @@ namespace DaticianProj.Core.Application.Services
                 {
                     Id = user.Id,
                     FullName = user.FirstName + " " + user.LastName,
-                    Age = DateTime.Now.Year - user.DateOfBirth.Year,
                     Email = user.Email,
                     RoleId = role.Id,
                     RoleName = role.Name,
-                    DateOfBirth = user.DateOfBirth,
-                    Gender = (Domain.Enum.Gender)(int)user.Gender,
-                    Height = user.Height,
-                    PhoneNumber = user.PhoneNumber,
                     Role = user.Role,
-                    Weight = user.Weight,
-                    UserGoal = user.UserGoal,
                 }
             };
         }

@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Project.Models.Entities;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -54,6 +55,7 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 /*builder.Services.AddDbContext<KonsumeContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));*/
+builder.Services.Configure<EmailConfiguration>(builder.Configuration.GetSection("SMTPConfig"));
 builder.Services.AddDbContext<KonsumeContext>(opt => opt.UseMySQL(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddTransient<IUserRepository, UserRepository>();
@@ -66,11 +68,11 @@ builder.Services.AddTransient<IIdentityService, IdentityService>();
 builder.Services.AddTransient<IUserService, UserService>();
 builder.Services.AddTransient<IRoleService, RoleService>();
 builder.Services.AddTransient<IMailAddressVerification, MailAddressVerification>();
-builder.Services.AddTransient<IMailService, MailService>();
 builder.Services.AddTransient<INumberVerificationService, NumberVerification>();
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddScoped<IUserInteractionService, UserInteractionService>();
 builder.Services.AddScoped<IVerificationCodeService, VerificationCodeService>();
+builder.Services.AddScoped<IEmailService, EmailService>();
 
 
 //builder.Services.AddControllers();
@@ -99,6 +101,7 @@ builder.Services.AddAuthentication(options =>
     googleOptions.SaveTokens = true;
 })
 .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme);
+
 
 var app = builder.Build();
 

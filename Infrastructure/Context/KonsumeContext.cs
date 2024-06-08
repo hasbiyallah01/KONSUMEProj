@@ -13,6 +13,7 @@ namespace DaticianProj.Infrastructure.Context
 
         public DbSet<Role> Roles => Set<Role>();
         public DbSet<User> Users => Set<User>();
+        public DbSet<Profile> Profiles => Set<Profile>();
         public DbSet<UserInteraction> UserInteractions => Set<UserInteraction>();
         public DbSet<VerificationCode> VerificationCodes => Set<VerificationCode>();
 
@@ -27,7 +28,11 @@ namespace DaticianProj.Infrastructure.Context
 
             modelBuilder.Entity<Role>().Property<int>("Id").ValueGeneratedOnAdd();
             modelBuilder.Entity<User>().Property<int>("Id").ValueGeneratedOnAdd();
-            
+            modelBuilder.Entity<VerificationCode>()
+            .HasOne(vc => vc.User)
+            .WithMany(u => u.VerificationCodes)
+            .HasForeignKey(vc => vc.UserId)
+            .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<Role>().HasData(
                 new Role { Id = 1, DateCreated = DateTime.Now, Name = "Admin", CreatedBy = "1" },
@@ -53,6 +58,14 @@ namespace DaticianProj.Infrastructure.Context
                     RoleId = 1,
                     CreatedBy = "1"
                 });
+
+            modelBuilder.Entity<Profile>().HasData(
+                new Profile
+                {
+                    Id = 1,
+                     
+                });
+
         }
     }
 }

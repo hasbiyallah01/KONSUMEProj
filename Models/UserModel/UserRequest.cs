@@ -25,26 +25,7 @@ namespace DaticianProj.Models.UserModel
         [Compare("Password")]
         public string ConfirmPassword { get; set; }
 
-        [Required]
-        [DataType(DataType.Date)]
-        public DateTime DateOfBirth { get; set; }
-
-        [Required]
-        public string PhoneNumber { get; set; }
-
-        [Required]
-        public Gender Gender { get; set; }
-
-        [Required]
-        [Range(1, int.MaxValue, ErrorMessage = "Height must be greater than 0.")]
-        public int Height { get; set; }
-
-        [Required]
-        [Range(1, int.MaxValue, ErrorMessage = "Weight must be greater than 0.")]
-        public int Weight { get; set; }
-
-        [Required]
-        public string UserGoal { get; set; }
+        
     }
 
     public class LoginRequestModel

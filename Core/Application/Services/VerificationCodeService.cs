@@ -5,11 +5,11 @@ namespace DaticianProj.Core.Application.Services
 {
     public class VerificationCodeService : IVerificationCodeService
     {
-        private readonly IMailService _mailService;
+        private readonly IEmailService _mailService;
         private readonly IVerificationCodeRepository _verificationCodeRepository;
         private readonly IUserRepository _userRepository;
 
-        public VerificationCodeService(IMailService mailService,  IVerificationCodeRepository verificationCodeRepository, IUserRepository userRepository)
+        public VerificationCodeService(IEmailService mailService,  IVerificationCodeRepository verificationCodeRepository, IUserRepository userRepository)
         {
             _mailService = mailService;
             _verificationCodeRepository = verificationCodeRepository;
@@ -39,14 +39,13 @@ namespace DaticianProj.Core.Application.Services
             int random = new Random().Next(10000, 99999);
             code.Code = random;
             code.CreatedOn = DateTime.Now;
-            var mailRequest = new MailRequest
+            var mailRequest = new MailRequests
             {
                 Subject = "Reset Password",
                 ToEmail = user.Email,
-                ToName = user.FirstName,
                 HtmlContent = $"<html><body><h1>Hello {user.FirstName}, Welcome</h1><h4>Your Password reset code is {code.Code} to reset your password</h4></body></html>",
             };
-            _mailService.SendEmail(mailRequest);
+            await _mailService.SendEmailClient(mailRequest.HtmlContent, mailRequest.Subject, mailRequest.ToEmail);
             user.IsDeleted = true;
             _userRepository.Update(user);
             _verificationCodeRepository.Update(code);
@@ -80,14 +79,13 @@ namespace DaticianProj.Core.Application.Services
             int random = new Random().Next(10000, 99999);
             code.Code = random;
             code.CreatedOn = DateTime.Now;
-            var mailRequest = new MailRequest
+            var mailRequest = new MailRequests
             {
                 Subject = "Confirmation Code",
                 ToEmail = user.Email,
-                ToName = user.FirstName,
                 HtmlContent = $"<html><body><h1>Hello {user.FirstName}, Welcome to KONSUME.</h1><h4>Your confirmation code is {code.Code} to continue with the registration</h4></body></html>",
             };
-            _mailService.SendEmail(mailRequest);
+            await _mailService.SendEmailClient(mailRequest.HtmlContent, mailRequest.Subject, mailRequest.ToEmail);
             _verificationCodeRepository.Update(code);
             return new BaseResponse<VerificationCodeDto>
             {

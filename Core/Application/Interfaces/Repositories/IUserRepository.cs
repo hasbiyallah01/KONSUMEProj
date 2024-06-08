@@ -15,6 +15,5 @@ namespace DaticianProj.Core.Application.Interfaces.Repositories
         User Update(User user);
         Task<bool> ExistsAsync(string email, int id);
         Task<bool> ExistsAsync(string email);
-        //Task<User> GetUserByGoogleIdAsync(string googleId);
     }
 }

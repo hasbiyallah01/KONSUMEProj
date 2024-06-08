@@ -303,13 +303,13 @@ namespace DaticianProj.Controllers
                 FirstName = additionalInfo.FirstName,
                 LastName = additionalInfo.LastName,
                 Email = additionalInfo.Email,
-                DateOfBirth = additionalInfo.DateOfBirth,
+                /*DateOfBirth = additionalInfo.DateOfBirth,
                 Gender = additionalInfo.Gender,
                 Height = additionalInfo.Height,
                 Password = additionalInfo.Password,
                 PhoneNumber = additionalInfo.PhoneNumber,
                 UserGoal = additionalInfo.UserGoal,
-                Weight = additionalInfo.Weight,
+                Weight = additionalInfo.Weight,*/
             };
 
             var user = await _userService.CreateUserUsingAuthAsync(token, userRequest);

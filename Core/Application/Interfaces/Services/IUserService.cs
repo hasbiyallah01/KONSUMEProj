@@ -14,6 +14,6 @@ namespace DaticianProj.Core.Application.Interfaces.Services
         Task<BaseResponse<UserResponse>> Login(LoginRequestModel model);
         Task<BaseResponse> CreateUserUsingAuthAsync(string token, UserRequest request);
         Task<GoogleUser > ValidateToken(string token);
-        Task<BaseResponse> CreateUser(UserRequest request);
+        Task<BaseResponse<UserResponse>> CreateUser(UserRequest request);
     }
 }
