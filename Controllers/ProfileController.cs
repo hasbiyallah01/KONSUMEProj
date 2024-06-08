@@ -1,0 +1,88 @@
+﻿using DaticianProj.Core.Application.Interfaces.Services;
+using DaticianProj.Models;
+using DaticianProj.Models.ProfileModel;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
+
+namespace DaticianProj.API.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    [Authorize]
+    public class ProfileController : ControllerBase
+    {
+        private readonly IProfileService _profileService;
+
+        public ProfileController(IProfileService profileService)
+        {
+            _profileService = profileService;
+        }
+
+        [HttpPost("create")]
+        public async Task<IActionResult> CreateProfile([FromBody] ProfileRequest request)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var response = await _profileService.CreateProfile(request);
+            if (!response.IsSuccessful)
+            {
+                return BadRequest(response.Message);
+            }
+
+            return Ok(response);
+        }
+
+        [HttpGet("all")]
+        public async Task<IActionResult> GetAllProfiles()
+        {
+            var response = await _profileService.GetAllProfiles();
+            return Ok(response);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetProfile(int id)
+        {
+            var response = await _profileService.GetProfile(id);
+            if (!response.IsSuccessful)
+            {
+                return NotFound(response.Message);
+            }
+
+            return Ok(response);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateProfile(int id, [FromBody] ProfileRequest request)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var response = await _profileService.UpdateProfile(id, request);
+            if (!response.IsSuccessful)
+            {
+                return BadRequest(response.Message);
+            }
+
+            return Ok(response);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> RemoveProfile(int id)
+        {
+            var response = await _profileService.RemoveProfile(id);
+            if (!response.IsSuccessful)
+            {
+                return NotFound(response.Message);
+            }
+
+            return Ok(response);
+        }
+    }
+}
+

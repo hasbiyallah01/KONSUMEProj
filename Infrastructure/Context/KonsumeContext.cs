@@ -1,5 +1,6 @@
 ﻿using DaticianProj.Core.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
+using Org.BouncyCastle.Asn1.Ocsp;
 using Project.Models.Entities;
 
 namespace DaticianProj.Infrastructure.Context
@@ -44,17 +45,11 @@ namespace DaticianProj.Infrastructure.Context
                 {
                     Id = 1,
                     DateCreated = DateTime.Now,
-                    DateOfBirth = new DateTime(2008, 03, 19),
                     FirstName = "Hasbiy",
                     LastName = "Oyebo",
-                    PhoneNumber = "08105269544",
-                    Weight = 45,
-                    Gender = Core.Domain.Enum.Gender.Female,
-                    Height = 90,
                     IsDeleted = false,
-                    UserGoal = "Healthy",
                     Email = "oyebohm@gmail.com",
-                    Password = "admin",
+                    Password = BCrypt.Net.BCrypt.HashPassword("admin"),
                     RoleId = 1,
                     CreatedBy = "1"
                 });
@@ -63,8 +58,18 @@ namespace DaticianProj.Infrastructure.Context
                 new Profile
                 {
                     Id = 1,
-                     
+                    Weight = 45,
+                    Gender = Core.Domain.Enum.Gender.Female,
+                    DateOfBirth = new DateTime(2008, 03, 19),
+                    Height = 90,
+                    IsDeleted = false,
+                    UserId = 1,
+                    CreatedBy="1",
+                    Nationality = "Nigerian",
+
+
                 });
+
 
         }
     }

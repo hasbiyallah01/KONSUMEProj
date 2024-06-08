@@ -11,6 +11,7 @@ namespace DaticianProj.Models.ProfileModel
         public int Age { get; set; } = default!;
         public DateTime DateOfBirth { get; set; }
         public string Nationality { get; set; } = default!;
+        public string Email { get; set; } = default!;
         public string? BodyFat { get; set; } = default!;
         public string? DietType { get; set; } = default!;
         public string? SnackPreference { get; set; } = default!;

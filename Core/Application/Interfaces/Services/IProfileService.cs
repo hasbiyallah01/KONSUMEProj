@@ -8,8 +8,8 @@ namespace DaticianProj.Core.Application.Interfaces.Services
     {
         Task<BaseResponse<ProfileResponse>> GetProfile(int id);
         Task<BaseResponse<ICollection<ProfileResponse>>> GetAllProfiles();
-        Task<BaseResponse> RemoveUser(int id);
-        Task<BaseResponse> UpdateProfile(int id, UserRequest request);
+        Task<BaseResponse> RemoveProfile(int id);
+        Task<BaseResponse> UpdateProfile(int id, ProfileRequest request);
         Task<BaseResponse<ProfileResponse>> CreateProfile(ProfileRequest request);
     }
 }

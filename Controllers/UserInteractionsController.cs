@@ -1,5 +1,4 @@
-﻿using DaticianProj.BackGroundConfiguration;
-using DaticianProj.Core.Application.Interfaces.Services;
+﻿using DaticianProj.Core.Application.Interfaces.Services;
 using DaticianProj.Models;
 using Microsoft.AspNetCore.Mvc;
 

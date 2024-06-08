@@ -1,33 +1,45 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace DaticianProj.Controllers
 {
+    [ApiController]
+    [Route("api/[controller]")]
     public class CaptchaController : ControllerBase
     {
+        private const string SecretKey = "6LejQacnAAAAAHdPPHqycAKXa6L_tsnX9guHZ27H";
 
-        [HttpPost]
-        public async Task<ActionResult> YourSignupEndpoint(string gRecaptchaResponse)
+        [HttpPost("verify")]
+        public async Task<ActionResult> VerifyCaptcha([FromForm] string gRecaptchaResponse)
         {
-            string secretKey = "6LejQacnAAAAAHdPPHqycAKXa6L_tsnX9guHZ27H";
+            if (string.IsNullOrEmpty(gRecaptchaResponse))
+            {
+                return BadRequest("CAPTCHA response is required.");
+            }
 
             using (var client = new HttpClient())
             {
-                var response = await client.GetAsync($"https://www.google.com/recaptcha/api/siteverify?secret={secretKey}&response={gRecaptchaResponse}");
-                response.EnsureSuccessStatusCode();
-                string responseBody = await response.Content.ReadAsStringAsync();
+                var response = await client.GetAsync($"https://www.google.com/recaptcha/api/siteverify?secret={SecretKey}&response={gRecaptchaResponse}");
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    return StatusCode((int)response.StatusCode, "Error verifying CAPTCHA.");
+                }
+
+                var responseBody = await response.Content.ReadAsStringAsync();
                 dynamic data = Newtonsoft.Json.JsonConvert.DeserializeObject(responseBody);
 
-                if (data.success == "true")
+                if (data.success == true)
                 {
-                    return Content("Signup successful!");
+                    return Ok("Signup successful!");
                 }
                 else
                 {
-                    return Content("CAPTCHA verification failed.");
+                    return BadRequest("CAPTCHA verification failed.");
                 }
             }
         }
     }
-
 }
 

@@ -3,64 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\HP\\source\\repos\\DaticianProj\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|c:\\users\\hp\\source\\repos\\daticianproj\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|c:\\users\\hp\\source\\repos\\daticianproj\\controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|solutionrelative:controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|c:\\users\\hp\\source\\repos\\daticianproj\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|solutionrelative:controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|c:\\users\\hp\\source\\repos\\daticianproj\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|solutionrelative:controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|c:\\users\\hp\\source\\repos\\daticianproj\\models\\profilemodel\\profileresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|solutionrelative:models\\profilemodel\\profileresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|c:\\users\\hp\\source\\repos\\daticianproj\\models\\usermodel\\userresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|solutionrelative:models\\usermodel\\userresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|c:\\users\\hp\\source\\repos\\daticianproj\\models\\usermodel\\userrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|solutionrelative:models\\usermodel\\userrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|c:\\users\\hp\\source\\repos\\daticianproj\\models\\rolemodel\\roleresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|solutionrelative:models\\rolemodel\\roleresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|c:\\users\\hp\\source\\repos\\daticianproj\\models\\rolemodel\\rolerequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|solutionrelative:models\\rolemodel\\rolerequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|c:\\users\\hp\\source\\repos\\daticianproj\\core\\application\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|solutionrelative:core\\application\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|c:\\users\\hp\\source\\repos\\daticianproj\\models\\profilemodel\\profilerequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|solutionrelative:models\\profilemodel\\profilerequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|c:\\users\\hp\\source\\repos\\daticianproj\\core\\application\\services\\profileservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|solutionrelative:core\\application\\services\\profileservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|c:\\users\\hp\\source\\repos\\daticianproj\\core\\application\\services\\identityservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|solutionrelative:core\\application\\services\\identityservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|c:\\users\\hp\\source\\repos\\daticianproj\\core\\application\\interfaces\\services\\iprofileservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|solutionrelative:core\\application\\interfaces\\services\\iprofileservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|c:\\users\\hp\\source\\repos\\daticianproj\\core\\application\\interfaces\\services\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|solutionrelative:core\\application\\interfaces\\services\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|c:\\users\\hp\\source\\repos\\daticianproj\\controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|solutionrelative:controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -75,187 +27,39 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\DaticianProj\\appsettings.json",
-              "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "C:\\Users\\HP\\source\\repos\\DaticianProj\\appsettings.json",
-              "RelativeToolTip": "appsettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB4AAAAEAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-06-08T17:51:26.616Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
               "Title": "AccountController.cs",
               "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Controllers\\AccountController.cs",
               "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
               "ToolTip": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Controllers\\AccountController.cs",
               "RelativeToolTip": "Controllers\\AccountController.cs",
-              "ViewState": "AQIAAJAAAAAAAAAAAAAAAC4BAAA1AAAA",
+              "ViewState": "AQIAAOMAAAAAAAAAAAAAAO8AAAA8AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-08T17:50:48.557Z",
+              "WhenOpened": "2024-06-08T21:27:32.847Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "AuthenticationController.cs",
               "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Controllers\\AuthenticationController.cs",
               "RelativeDocumentMoniker": "Controllers\\AuthenticationController.cs",
               "ToolTip": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Controllers\\AuthenticationController.cs",
               "RelativeToolTip": "Controllers\\AuthenticationController.cs",
-              "ViewState": "AQIAABsAAAAAAAAAAAAYwAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-08T17:50:44.233Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "RoleRequest.cs",
-              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Models\\RoleModel\\RoleRequest.cs",
-              "RelativeDocumentMoniker": "Models\\RoleModel\\RoleRequest.cs",
-              "ToolTip": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Models\\RoleModel\\RoleRequest.cs",
-              "RelativeToolTip": "Models\\RoleModel\\RoleRequest.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-08T16:05:11.077Z"
+              "WhenOpened": "2024-06-08T21:27:27.592Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "ProfileRequest.cs",
-              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Models\\ProfileModel\\ProfileRequest.cs",
-              "RelativeDocumentMoniker": "Models\\ProfileModel\\ProfileRequest.cs",
-              "ToolTip": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Models\\ProfileModel\\ProfileRequest.cs",
-              "RelativeToolTip": "Models\\ProfileModel\\ProfileRequest.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAABTAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-08T16:01:41.085Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "UserRequest.cs",
-              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Models\\UserModel\\UserRequest.cs",
-              "RelativeDocumentMoniker": "Models\\UserModel\\UserRequest.cs",
-              "ToolTip": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Models\\UserModel\\UserRequest.cs",
-              "RelativeToolTip": "Models\\UserModel\\UserRequest.cs",
-              "ViewState": "AQIAABQAAAAAAAAAAAAgwBsAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-08T16:01:21.484Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "UserResponse.cs",
-              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Models\\UserModel\\UserResponse.cs",
-              "RelativeDocumentMoniker": "Models\\UserModel\\UserResponse.cs",
-              "ToolTip": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Models\\UserModel\\UserResponse.cs",
-              "RelativeToolTip": "Models\\UserModel\\UserResponse.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAApAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-08T16:01:01.779Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ProfileResponse.cs",
-              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Models\\ProfileModel\\ProfileResponse.cs",
-              "RelativeDocumentMoniker": "Models\\ProfileModel\\ProfileResponse.cs",
-              "ToolTip": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Models\\ProfileModel\\ProfileResponse.cs",
-              "RelativeToolTip": "Models\\ProfileModel\\ProfileResponse.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAjAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-08T16:00:46.856Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "IdentityService.cs",
-              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Core\\Application\\Services\\IdentityService.cs",
-              "RelativeDocumentMoniker": "Core\\Application\\Services\\IdentityService.cs",
-              "ToolTip": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Core\\Application\\Services\\IdentityService.cs",
-              "RelativeToolTip": "Core\\Application\\Services\\IdentityService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-08T16:00:07.325Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "UserController.cs",
-              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Controllers\\UserController.cs",
-              "RelativeDocumentMoniker": "Controllers\\UserController.cs",
-              "ToolTip": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Controllers\\UserController.cs",
-              "RelativeToolTip": "Controllers\\UserController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-08T15:52:57.095Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "RoleResponse.cs",
-              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Models\\RoleModel\\RoleResponse.cs",
-              "RelativeDocumentMoniker": "Models\\RoleModel\\RoleResponse.cs",
-              "ToolTip": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Models\\RoleModel\\RoleResponse.cs",
-              "RelativeToolTip": "Models\\RoleModel\\RoleResponse.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-08T16:05:26.839Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "ProfileService.cs",
-              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Core\\Application\\Services\\ProfileService.cs",
-              "RelativeDocumentMoniker": "Core\\Application\\Services\\ProfileService.cs",
-              "ToolTip": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Core\\Application\\Services\\ProfileService.cs",
-              "RelativeToolTip": "Core\\Application\\Services\\ProfileService.cs",
-              "ViewState": "AQIAAAcBAAAAAAAAAAAUwCMBAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-08T15:54:36.727Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 1,
               "Title": "UserService.cs",
               "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Core\\Application\\Services\\UserService.cs",
               "RelativeDocumentMoniker": "Core\\Application\\Services\\UserService.cs",
               "ToolTip": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Core\\Application\\Services\\UserService.cs",
               "RelativeToolTip": "Core\\Application\\Services\\UserService.cs",
-              "ViewState": "AQIAANQAAAAAAAAAAAAkwEQBAABaAAAA",
+              "ViewState": "AQIAALUAAAAAAAAAAAAAANEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-08T15:53:10.666Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "IUserService.cs",
-              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Core\\Application\\Interfaces\\Services\\IUserService.cs",
-              "RelativeDocumentMoniker": "Core\\Application\\Interfaces\\Services\\IUserService.cs",
-              "ToolTip": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Core\\Application\\Interfaces\\Services\\IUserService.cs",
-              "RelativeToolTip": "Core\\Application\\Interfaces\\Services\\IUserService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-08T15:51:19.907Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "IProfileService.cs",
-              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Core\\Application\\Interfaces\\Services\\IProfileService.cs",
-              "RelativeDocumentMoniker": "Core\\Application\\Interfaces\\Services\\IProfileService.cs",
-              "ToolTip": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Core\\Application\\Interfaces\\Services\\IProfileService.cs",
-              "RelativeToolTip": "Core\\Application\\Interfaces\\Services\\IProfileService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAABSAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-08T15:50:54.393Z"
+              "WhenOpened": "2024-06-08T20:52:45.128Z"
             }
           ]
         }

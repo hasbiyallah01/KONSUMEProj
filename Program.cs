@@ -62,13 +62,9 @@ builder.Services.AddTransient<IUserRepository, UserRepository>();
 builder.Services.AddTransient<IRoleRepository, RoleRepository>();
 builder.Services.AddTransient<IVerificationCodeRepository, VerificationCodeRepository>();
 builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
-
-builder.Services.AddHostedService<SmsBackgroundTasks>();
 builder.Services.AddTransient<IIdentityService, IdentityService>();
 builder.Services.AddTransient<IUserService, UserService>();
 builder.Services.AddTransient<IRoleService, RoleService>();
-builder.Services.AddTransient<IMailAddressVerification, MailAddressVerification>();
-builder.Services.AddTransient<INumberVerificationService, NumberVerification>();
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddScoped<IUserInteractionService, UserInteractionService>();
 builder.Services.AddScoped<IVerificationCodeService, VerificationCodeService>();

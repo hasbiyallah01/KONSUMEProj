@@ -1,14 +1,11 @@
 ﻿using DaticianProj.Core.Application.Interfaces.Repositories;
 using DaticianProj.Core.Application.Interfaces.Services;
 using DaticianProj.Core.Domain.Entities;
-using DaticianProj.Core.Domain.Enum;
 using DaticianProj.Models;
 using DaticianProj.Models.UserModel;
 using Google.Apis.Auth;
 using KonsumeTestRun.Core.Application.Interfaces.Repositories;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Project.Models.Entities;
-using sib_api_v3_sdk.Model;
 using System.Security.Claims;
 using static Google.Apis.Auth.GoogleJsonWebSignature;
 
@@ -81,7 +78,7 @@ namespace DaticianProj.Core.Application.Services
             var user = new User
             {
                 Email = request.Email,
-                Password = request.Password,
+                Password = BCrypt.Net.BCrypt.HashPassword( request.Password),
                 FirstName = request.FirstName,
                 LastName = request.LastName,
                 DateCreated = DateTime.UtcNow,
@@ -172,15 +169,6 @@ namespace DaticianProj.Core.Application.Services
                 };
             }
 
-            if (request.Password != request.ConfirmPassword)
-            {
-                return new BaseResponse
-                {
-                    Message = "Password does not match",
-                    IsSuccessful = false
-                };
-            }
-
             var role = await _roleRepository.GetAsync(r => r.Name.ToLower() == "patient");
             if (role == null)
             {
@@ -193,7 +181,6 @@ namespace DaticianProj.Core.Application.Services
             var user = new User
             {
                 Email = payload.Email,
-                Password = request.Password,
                 FirstName = payload.GivenName,
                 LastName = payload.FamilyName,
                 DateCreated = DateTime.UtcNow,
@@ -336,12 +323,13 @@ namespace DaticianProj.Core.Application.Services
             user.FirstName = request.FirstName;
             user.LastName = request.LastName;
             user.Email = request.Email;
-            user.Password = request.Password;
+            user.Password = BCrypt.Net.BCrypt.HashPassword(request.Password);
             user.IsDeleted = false;
             user.RoleId = role.Id;
             user.Role = role;
             user.DateModified = DateTime.Now;
             user.ModifiedBy = loginUserId;
+            user.DateModified = DateTime.UtcNow;
 
             role.Users.Add(user);
 

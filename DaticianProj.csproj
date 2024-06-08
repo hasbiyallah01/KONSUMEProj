@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+	  <PackageReference Include="BCrypt.Net" Version="0.1.0" />
 	  <PackageReference Include="Google.Apis.Auth" Version="1.68.0" />
 	  <PackageReference Include="MailKit" Version="4.6.0" />
 	  <PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="2.2.0" />
@@ -21,7 +22,6 @@
 	  <PackageReference Include="MySql.EntityFrameworkCore" Version="8.0.0" />
 	  <PackageReference Include="NCrontab.Signed" Version="3.3.3" />
 	  <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.4" />
-	  <PackageReference Include="sib_api_v3_sdk" Version="4.0.2" />
 	  <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 

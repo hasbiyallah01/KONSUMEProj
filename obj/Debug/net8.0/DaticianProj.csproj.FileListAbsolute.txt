@@ -14,14 +14,11 @@ C:\Users\HP\source\repos\DaticianProj\bin\Debug\net8.0\DaticianProj.runtimeconfi
 C:\Users\HP\source\repos\DaticianProj\bin\Debug\net8.0\DaticianProj.dll
 C:\Users\HP\source\repos\DaticianProj\bin\Debug\net8.0\DaticianProj.pdb
 C:\Users\HP\source\repos\DaticianProj\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
-C:\Users\HP\source\repos\DaticianProj\bin\Debug\net8.0\FubarCoder.RestSharp.Portable.Core.dll
-C:\Users\HP\source\repos\DaticianProj\bin\Debug\net8.0\FubarCoder.RestSharp.Portable.HttpClient.dll
 C:\Users\HP\source\repos\DaticianProj\bin\Debug\net8.0\Google.Apis.dll
 C:\Users\HP\source\repos\DaticianProj\bin\Debug\net8.0\Google.Apis.Auth.dll
 C:\Users\HP\source\repos\DaticianProj\bin\Debug\net8.0\Google.Apis.Core.dll
 C:\Users\HP\source\repos\DaticianProj\bin\Debug\net8.0\Google.Protobuf.dll
 C:\Users\HP\source\repos\DaticianProj\bin\Debug\net8.0\Humanizer.dll
-C:\Users\HP\source\repos\DaticianProj\bin\Debug\net8.0\JsonSubTypes.dll
 C:\Users\HP\source\repos\DaticianProj\bin\Debug\net8.0\K4os.Compression.LZ4.dll
 C:\Users\HP\source\repos\DaticianProj\bin\Debug\net8.0\K4os.Compression.LZ4.Streams.dll
 C:\Users\HP\source\repos\DaticianProj\bin\Debug\net8.0\K4os.Hash.xxHash.dll
@@ -52,7 +49,6 @@ C:\Users\HP\source\repos\DaticianProj\bin\Debug\net8.0\NCrontab.Signed.dll
 C:\Users\HP\source\repos\DaticianProj\bin\Debug\net8.0\Newtonsoft.Json.dll
 C:\Users\HP\source\repos\DaticianProj\bin\Debug\net8.0\Npgsql.dll
 C:\Users\HP\source\repos\DaticianProj\bin\Debug\net8.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
-C:\Users\HP\source\repos\DaticianProj\bin\Debug\net8.0\sib_api_v3_sdk.dll
 C:\Users\HP\source\repos\DaticianProj\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\HP\source\repos\DaticianProj\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\HP\source\repos\DaticianProj\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -149,3 +145,4 @@ C:\Users\HP\source\repos\DaticianProj\obj\Debug\net8.0\DaticianProj.genruntimeco
 C:\Users\HP\source\repos\DaticianProj\obj\Debug\net8.0\ref\DaticianProj.dll
 C:\Users\HP\source\repos\DaticianProj\bin\Debug\net8.0\MailKit.dll
 C:\Users\HP\source\repos\DaticianProj\bin\Debug\net8.0\MimeKit.dll
+C:\Users\HP\source\repos\DaticianProj\bin\Debug\net8.0\BCrypt.Net.dll

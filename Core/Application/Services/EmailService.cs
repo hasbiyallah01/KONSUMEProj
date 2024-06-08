@@ -22,13 +22,13 @@ namespace DaticianProj.Core.Application.Services
 
         
 
-        public async Task<BaseResponse> SendNotificationToUserAsync(User user)
+        public async Task<BaseResponse> SendNotificationToUserAsync(Profile profile)
         {
 
             var mailRecieverRequestDto = new MailRecieverDto
             {
-                Email = user.Email,
-                Name = $"{user.FirstName}"
+                Email = profile.User.Email,
+                Name = profile.User.FirstName + " " + profile.User.LastName,
             };
             await SendEmailAsync(mailRecieverRequestDto, new MailRequests { Body = $"<P>We are excited to announce that you've been granted access to Konsume, the cutting-edge AI-driven" +
                 $" platform revolutionizing personalized nutrition and diet management!</p>\r\n<p>With Konsume, you have the power to harness AI technology to tailor your diet and nutritional" +
