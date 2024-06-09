@@ -22,7 +22,8 @@ namespace DaticianProj.Core.Application.Services
             {
                 Question = question,
                 Response = response,
-                CreatedAt = DateTime.UtcNow
+                DateCreated = DateTime.UtcNow,
+                IsDeleted = false,
             };
 
             _context.UserInteractions.Add(interaction);
@@ -32,7 +33,7 @@ namespace DaticianProj.Core.Application.Services
 
         public async Task<List<UserInteraction>> GetUserInteractionsAsync()
         {
-            return await _context.UserInteractions.OrderByDescending(ui => ui.CreatedAt).ToListAsync();
+            return await _context.UserInteractions.OrderByDescending(ui => ui.DateCreated).ToListAsync();
         }
     }
 }

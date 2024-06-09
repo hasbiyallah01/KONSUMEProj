@@ -9,7 +9,7 @@ namespace DaticianProj.Core.Application.Interfaces.Services
         Task<BaseResponse<ProfileResponse>> GetProfile(int id);
         Task<BaseResponse<ICollection<ProfileResponse>>> GetAllProfiles();
         Task<BaseResponse> RemoveProfile(int id);
+        Task<BaseResponse<ProfileResponse>> CreateProfile(int Userid, ProfileRequest request);
         Task<BaseResponse> UpdateProfile(int id, ProfileRequest request);
-        Task<BaseResponse<ProfileResponse>> CreateProfile(ProfileRequest request);
     }
 }

@@ -54,9 +54,10 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
-/*builder.Services.AddDbContext<KonsumeContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));*/
+
 builder.Services.Configure<EmailConfiguration>(builder.Configuration.GetSection("SMTPConfig"));
-builder.Services.AddDbContext<KonsumeContext>(opt => opt.UseMySQL(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddDbContext<KonsumeContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+//builder.Services.AddDbContext<KonsumeContext>(opt => opt.UseMySQL(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddTransient<IUserRepository, UserRepository>();
 builder.Services.AddTransient<IRoleRepository, RoleRepository>();

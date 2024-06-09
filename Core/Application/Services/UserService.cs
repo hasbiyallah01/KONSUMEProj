@@ -327,9 +327,8 @@ namespace DaticianProj.Core.Application.Services
             user.IsDeleted = false;
             user.RoleId = role.Id;
             user.Role = role;
-            user.DateModified = DateTime.Now;
-            user.ModifiedBy = loginUserId;
             user.DateModified = DateTime.UtcNow;
+            user.ModifiedBy = loginUserId;
 
             role.Users.Add(user);
 

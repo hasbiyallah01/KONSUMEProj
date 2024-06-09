@@ -33,7 +33,7 @@ namespace KonsumeTestRun.Controllers
         public async Task<IActionResult> GetUser([FromRoute] int id)
         {
             var user = await _userService.GetUser(id);
-            if (!user.IsSuccessful)
+            if (!user.IsSuccessful || user == null)
             {
                 _logger.LogError("User not found: {UserId}", id);
                 return NotFound(new { Message = user.Message });

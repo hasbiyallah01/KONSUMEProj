@@ -5,6 +5,10 @@ using DaticianProj.Models;
 using KonsumeTestRun.Core.Application.Interfaces.Repositories;
 using System.Security.Claims;
 using DaticianProj.Models.ProfileModel;
+using DaticianProj.Core.Domain.Enum;
+using MailKit;
+using Microsoft.AspNetCore.Http.HttpResults;
+using DaticianProj.Models.UserModel;
 
 namespace DaticianProj.Core.Application.Services
 {
@@ -30,92 +34,6 @@ namespace DaticianProj.Core.Application.Services
             _profileRepository = profileRepository;
         }
 
-        public async Task<BaseResponse<ProfileResponse>> CreateProfile(ProfileRequest request)
-        {
-            var loginUserId = _httpContext.HttpContext.User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Email).Value;
-            var user = await _userRepository.GetAsync(loginUserId);
-            if (user != null)
-            {
-                return new BaseResponse<ProfileResponse>
-                {
-                    Message = "Email already exists!!!",
-                    IsSuccessful = false
-                };
-            }
-
-            var role = await _roleRepository.GetAsync(r => r.Name.ToLower() == "patient");
-            if (role == null)
-            {
-                return new BaseResponse<ProfileResponse>
-                {
-                    Message = "Role does not exist",
-                    IsSuccessful = false
-                };
-            }
-
-            var profile = new Profile
-            {
-                DateCreated = DateTime.UtcNow,
-                Gender = (Domain.Enum.Gender)(int)request.Gender,
-                Height = request.Height,
-                IsDeleted = false,
-                UserGoals = request.UserGoals,
-                Weight = request.Weight,
-                Allergies = request.Allergies,
-                BodyFat = request.BodyFat,
-                DateOfBirth = DateTime.UtcNow,
-                DietType = request.DietType,
-                Nationality = request.Nationality,
-                NoOfMealPerDay = request.NoOfMealPerDay,
-                SnackPreference = request.SnackPreference,
-                UserId = user.Id,
-                User = user,
-                CreatedBy = "1"
-            };
-
-            role.Users.Add(user);
-            _roleRepository.Update(role);
-            var newUser = await _profileRepository.AddAsync(profile);
-            
-
-            try
-            {
-                await _emailService.SendNotificationToUserAsync(profile);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error occurred while sending email: {ex.Message}");
-                return new BaseResponse<ProfileResponse>
-                {
-                    Message = $"An error occurred while sending email{ex.Message}",
-                    IsSuccessful = false
-                };
-            }
-            await _unitOfWork.SaveAsync();
-            return new BaseResponse<ProfileResponse>
-            {
-                Message = "Check Your Mail And Complete Your Registration",
-                IsSuccessful = true,
-                Value = new ProfileResponse
-                {
-                    Id = profile.Id,
-                    Age = DateTime.Now.Year - profile.DateOfBirth.Year,
-                    Email = user.Email,
-                    DateOfBirth = profile.DateOfBirth,
-                    Gender = (Domain.Enum.Gender)(int)profile.Gender,
-                    Height = profile.Height,
-                    Weight = profile.Weight,
-                    UserGoals = profile.UserGoals,
-                    Allergies = profile.Allergies,
-                    BodyFat = profile.BodyFat,
-                    Nationality = profile.Nationality,
-                    DietType = profile.DietType,
-                    NoOfMealPerDay = profile.NoOfMealPerDay,
-                    SnackPreference = profile.SnackPreference,
-                }
-            };
-        }
-
         public async Task<BaseResponse<ICollection<ProfileResponse>>> GetAllProfiles()
         {
             var profile = await _profileRepository.GetAllAsync();
@@ -127,7 +45,7 @@ namespace DaticianProj.Core.Application.Services
                 Value = profile.Select(profile => new ProfileResponse
                 {
                     Id = profile.Id,
-                    Age = DateTime.Now.Year - profile.DateOfBirth.Year,
+                    Age = DateTime.UtcNow.Year - profile.DateOfBirth.Year,
                     Email = profile.User.Email,
                     DateOfBirth = profile.DateOfBirth,
                     Gender = (Domain.Enum.Gender)(int)profile.Gender,
@@ -162,7 +80,7 @@ namespace DaticianProj.Core.Application.Services
                 Value = new ProfileResponse
                 {
                     Id = profile.Id,
-                    Age = DateTime.Now.Year - profile.DateOfBirth.Year,
+                    Age = DateTime.UtcNow.Year - profile.DateOfBirth.Year,
                     Email = profile.User.Email,
                     DateOfBirth = profile.DateOfBirth,
                     Gender = (Domain.Enum.Gender)(int)profile.Gender,
@@ -201,22 +119,108 @@ namespace DaticianProj.Core.Application.Services
             };
         }
 
-        public async Task<BaseResponse> UpdateProfile(int id, ProfileRequest request)
+        public async Task<BaseResponse<ProfileResponse>> CreateProfile(int Userid, ProfileRequest request)
         {
-            var profile = await _profileRepository.GetAsync(id);
-            if (profile == null)
+            var user = await _userRepository.GetAsync(Userid);
+            if (user == null)
             {
-                return new BaseResponse
+                return new BaseResponse<ProfileResponse>
                 {
                     Message = "User does not exist",
                     IsSuccessful = false
                 };
             }
 
-            var formerRole = await _roleRepository.GetAsync(profile.User.RoleId);
-            formerRole.Users.Remove(profile.User);
+            var role = await _roleRepository.GetAsync(r => r.Name.ToLower() == "patient");
+            if (role == null)
+            {
+                return new BaseResponse<ProfileResponse>
+                {
+                    Message = $"Role with id '{role.Id}' does not exists",
+                    IsSuccessful = false
+                };
+            }
+            var profile = user.Profile ?? new Profile();
+            profile.DateOfBirth = request.DateOfBirth;
+            profile.Gender = (Domain.Enum.Gender)(int)request.Gender;
+            profile.Height = request.Height;
+            profile.Weight = request.Weight;
+            profile.UserGoals = request.UserGoals;
+            profile.Allergies = request.Allergies;
+            profile.BodyFat = request.BodyFat;
+            profile.Nationality = request.Nationality;
+            profile.DietType = request.DietType;
+            profile.NoOfMealPerDay = request.NoOfMealPerDay;
+            profile.SnackPreference = request.SnackPreference;
+            profile.UserId = Userid;
+            profile.User = user;
+            profile.DateCreated = DateTime.UtcNow;
+            profile.IsDeleted = false;
+            profile.CreatedBy = "1";
+
+            
+            try
+            {
+                if (user.Profile == null)
+                    await _profileRepository.AddAsync(profile);
+                _roleRepository.Update(role);
+                await _emailService.SendNotificationToUserAsync(profile);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error occurred while sending email: {ex.Message}");
+                return new BaseResponse<ProfileResponse>
+                {
+                    Message = $"An error occurred while sending email{ex.Message}",
+                    IsSuccessful = false
+                };
+            }
+            await _unitOfWork.SaveAsync();
+
+            return new BaseResponse<ProfileResponse>
+            {
+                Message = "Check Your Mail And Complete Your Registration",
+                IsSuccessful = true,
+                Value = new ProfileResponse
+                {
+                    Id = profile.Id,
+                    Age = DateTime.UtcNow.Year - profile.DateOfBirth.Year,
+                    Email = user.Email,
+                    DateOfBirth = profile.DateOfBirth,
+                    Gender = (Domain.Enum.Gender)(int)profile.Gender,
+                    Height = profile.Height,
+                    Weight = profile.Weight,
+                    UserGoals = profile.UserGoals,
+                    Allergies = profile.Allergies,
+                    BodyFat = profile.BodyFat,
+                    Nationality = profile.Nationality,
+                    DietType = profile.DietType,
+                    NoOfMealPerDay = profile.NoOfMealPerDay,
+                    SnackPreference = profile.SnackPreference,
+                }
+            };
+        }
+
+
+        public async Task<BaseResponse> UpdateProfile(int id, ProfileRequest request)
+        {
+            var profile = await _profileRepository.GetAsync(id);
+            var user = await _userRepository.GetAsync(profile.User.Email);
+            if (profile == null)
+            {
+                return new BaseResponse
+                {
+                    Message = "profile does not exist",
+                    IsSuccessful = false
+                };
+            }
+
+            var formerRole = await _roleRepository.GetAsync(user.RoleId);
+            formerRole.Users.Remove(user);
             _roleRepository.Update(formerRole);
-            if (profile != null)
+
+            var exists = await _profileRepository.ExistsAsync(profile.User.Email, id);
+            if (exists)
             {
                 return new BaseResponse
                 {
@@ -234,19 +238,30 @@ namespace DaticianProj.Core.Application.Services
                     IsSuccessful = false
                 };
             }
-            profile.DateOfBirth = profile.DateOfBirth;
-            profile.Gender = (Domain.Enum.Gender)(int)profile.Gender;
-            profile.Height = profile.Height;
-            profile.Weight = profile.Weight;
-            profile.UserGoals = profile.UserGoals;
-            profile.Allergies = profile.Allergies;
-            profile.BodyFat = profile.BodyFat;
-            profile.Nationality = profile.Nationality;
-            profile.DietType = profile.DietType;
-            profile.NoOfMealPerDay = profile.NoOfMealPerDay;
-            profile.SnackPreference = profile.SnackPreference;
+
+            var loginUserId = _httpContext.HttpContext.User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier).Value;
+            profile.DateOfBirth = request.DateOfBirth;
+            profile.Gender = (Domain.Enum.Gender)(int)request.Gender;
+            profile.Height = request.Height;
+            profile.Weight = request.Weight;
+            profile.UserGoals = request.UserGoals;
+            profile.Allergies = request.Allergies;
+            profile.BodyFat = request.BodyFat;
+            profile.Nationality = request.Nationality;
+            profile.DietType = request.DietType;
+            profile.NoOfMealPerDay = request.NoOfMealPerDay;
+            profile.SnackPreference = request.SnackPreference;
+            profile.UserId = user.Id;
+            profile.User = user;
+            profile.ModifiedBy = loginUserId;
+            profile.DateModified = DateTime.UtcNow;
+            profile.IsDeleted = false;
+            profile.CreatedBy = "1";
+
+            role.Users.Add(user);
+
             _roleRepository.Update(role);
-            _profileRepository.Update(profile);
+            _userRepository.Update(user);
             await _unitOfWork.SaveAsync();
 
             return new BaseResponse

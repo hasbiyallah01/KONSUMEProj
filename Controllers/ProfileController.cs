@@ -20,14 +20,14 @@ namespace DaticianProj.API.Controllers
         }
 
         [HttpPost("create")]
-        public async Task<IActionResult> CreateProfile([FromBody] ProfileRequest request)
+        public async Task<IActionResult> CreateProfile(int userId,[FromBody] ProfileRequest request)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var response = await _profileService.CreateProfile(request);
+            var response = await _profileService.CreateProfile(userId, request);
             if (!response.IsSuccessful)
             {
                 return BadRequest(response.Message);
@@ -47,7 +47,7 @@ namespace DaticianProj.API.Controllers
         public async Task<IActionResult> GetProfile(int id)
         {
             var response = await _profileService.GetProfile(id);
-            if (!response.IsSuccessful)
+            if (!response.IsSuccessful || response == null)
             {
                 return NotFound(response.Message);
             }

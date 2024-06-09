@@ -140,7 +140,7 @@ namespace DaticianProj.Core.Application.Services
             var loginUserId = _httpContext.HttpContext.User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier).Value;
             role.Name = request.Name;
             role.Description = request.Description ?? "This role has no description";
-            role.DateModified = DateTime.Now;
+            role.DateModified = DateTime.UtcNow;
             role.ModifiedBy = loginUserId;
 
             _roleRepository.Update(role);
