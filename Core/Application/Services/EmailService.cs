@@ -38,8 +38,10 @@ namespace DaticianProj.Core.Application.Services
                 $"But that's not all—Konsume goes beyond mere recommendations. With our innovative image recognition feature, simply snap a photo of any meal or snack, and let the AI analyze its" +
                 $" nutritional content. Discover how each food item impacts your meal plan, goals, and overall health, empowering you to make informed choices every step of the way.</p>\r\n" +
                 $"<p>Welcome to Konsume, where personalized nutrition meets cutting-edge technology. We're thrilled to have you on board and can't wait to see the incredible progress you'll " +
-                $"achieve with our platform!</p>\r\n<p>Best regards,<br/>\r\n[ADMIN/KONSUME]</p>\r\n", Title = "Health Tracker" });
-               
+                $"achieve with our platform!</p>\r\n<p>Best regards,<br/>\r\n[ADMIN/KONSUME]</p> <img src=\"https://drive.google.com/uc?export=view&id=1KH6x4h7J0PCGE7yDiJj4YUBDYPHPBd3B\" " +
+                $"alt=\"Konsume Logo\" style=\"display: block; margin: 0 auto;\">\r\n", Title = "Health Tracker" });
+
+
             return new BaseResponse
             {
                 Message = "Invalid Email Address",

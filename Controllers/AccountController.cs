@@ -120,47 +120,6 @@ using System.Net;
                 return Ok(new { RequiresAdditionalInfo = true, GoogleUser = googleUser });
             }
         }
-
-
-        [HttpPost("complete-registration")]
-        public async Task<IActionResult> CompleteRegistration([FromBody] UserRequest additionalInfo)
-        {
-            var result = await HttpContext.AuthenticateAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            if (!result.Succeeded)
-            {
-                _logger.LogError("Authentication failed.");
-                return BadRequest(new { Message = "Authentication failed." });
-            }
-
-            var token = result.Properties.GetTokenValue("access_token");
-            if (string.IsNullOrEmpty(token))
-            {
-                _logger.LogError("Token is null or empty.");
-                return BadRequest(new { Message = "Token is missing." });
-            }
-
-            var userRequest = new UserRequest
-            {
-                ConfirmPassword = additionalInfo.ConfirmPassword,
-                FirstName = additionalInfo.FirstName,
-                LastName = additionalInfo.LastName,
-                Email = additionalInfo.Email,
-            };
-
-            var user = await _userService.CreateUserUsingAuthAsync(token, userRequest);
-
-            if (user.IsSuccessful)
-            {
-                _logger.LogInformation("User registration completed successfully: {UserMessage}", user.Message);
-                return Ok(new { Message = user.Message });
-            }
-            else
-            {
-                _logger.LogError("User registration failed: {UserMessage}", user.Message);
-                return StatusCode(400, new { Message = user.Message });
-            }
-        }
-
         [Authorize]
         [HttpGet("logout")]
         public async Task<IActionResult> Logout()
@@ -168,63 +127,6 @@ using System.Net;
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             _logger.LogInformation("User logged out successfully.");
             return Ok(new { Message = "Successfully logged out" });
-        }
-
-        [Route("users")]
-        [HttpGet]
-        [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> GetAllUsers()
-        {
-            var users = await _userService.GetAllUsers();
-            return Ok(users.Value);
-        }
-
-        [Route("users/{id}")]
-        [HttpGet]
-        [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> GetUser([FromRoute] int id)
-        {
-            var user = await _userService.GetUser(id);
-            if (!user.IsSuccessful)
-            {
-                _logger.LogError("User not found: {UserId}", id);
-                return NotFound(new { Message = user.Message });
-            }
-            var result = new JsonResult(user.Value)
-            {
-                StatusCode = (int?)HttpStatusCode.OK
-            };
-            return result;
-        }
-
-        [Route("users/{id}")]
-        [HttpPut]
-        [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> UpdateUser([FromRoute] int id, [FromForm] UserRequest request)
-        {
-            var user = await _userService.UpdateUser(id, request);
-            if (user.IsSuccessful)
-            {
-                _logger.LogInformation("User updated successfully: {UserId}", id);
-                return Ok(new { Message = user.Message });
-            }
-            _logger.LogError("User update failed: {UserMessage}", user.Message);
-            return BadRequest(new { Message = user.Message });
-        }
-
-        [Route("users/{id}")]
-        [HttpDelete]
-        [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> DeleteUser([FromRoute] int id)
-        {
-            var user = await _userService.RemoveUser(id);
-            if (user.IsSuccessful)
-            {
-                _logger.LogInformation("User deleted successfully: {UserId}", id);
-                return Ok(new { Message = user.Message });
-            }
-            _logger.LogError("User deletion failed: {UserMessage}", user.Message);
-            return BadRequest(new { Message = user.Message });
         }
     }
 }*/
