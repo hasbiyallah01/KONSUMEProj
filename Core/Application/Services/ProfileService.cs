@@ -141,7 +141,7 @@ namespace DaticianProj.Core.Application.Services
                 };
             }
             var profile = user.Profile ?? new Profile();
-            profile.DateOfBirth = request.DateOfBirth;
+            profile.DateOfBirth = DateTime.SpecifyKind(request.DateOfBirth, DateTimeKind.Utc);
             profile.Gender = (Domain.Enum.Gender)(int)request.Gender;
             profile.Height = request.Height;
             profile.Weight = request.Weight;
@@ -240,7 +240,7 @@ namespace DaticianProj.Core.Application.Services
             }
 
             var loginUserId = _httpContext.HttpContext.User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier).Value;
-            profile.DateOfBirth = request.DateOfBirth;
+            profile.DateOfBirth = DateTime.SpecifyKind(request.DateOfBirth, DateTimeKind.Utc);
             profile.Gender = (Domain.Enum.Gender)(int)request.Gender;
             profile.Height = request.Height;
             profile.Weight = request.Weight;

@@ -81,7 +81,7 @@ namespace DaticianProj.Infrastructure.Context
                 Id = 1,
                 Weight = 45,
                 Gender = Core.Domain.Enum.Gender.Female,
-                DateOfBirth = new DateTime(2008, 03, 19),
+                DateOfBirth =  DateTime.SpecifyKind(new DateTime(2008, 3, 19, 0, 0, 0), DateTimeKind.Utc),
                 DateCreated = DateTime.UtcNow,
                 Height = 90,
                 IsDeleted = false,

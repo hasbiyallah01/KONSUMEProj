@@ -3,6 +3,26 @@
   "WorkspaceRootPath": "C:\\Users\\HP\\source\\repos\\DaticianProj\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|c:\\users\\hp\\source\\repos\\daticianproj\\migrations\\20240609202147_initial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|solutionrelative:migrations\\20240609202147_initial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|c:\\users\\hp\\source\\repos\\daticianproj\\migrations\\konsumecontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|solutionrelative:migrations\\konsumecontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|c:\\users\\hp\\source\\repos\\daticianproj\\core\\application\\services\\profileservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|solutionrelative:core\\application\\services\\profileservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|c:\\users\\hp\\source\\repos\\daticianproj\\core\\domain\\entities\\profile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|solutionrelative:core\\domain\\entities\\profile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|c:\\users\\hp\\source\\repos\\daticianproj\\infrastructure\\context\\konsumecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|solutionrelative:infrastructure\\context\\konsumecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|c:\\users\\hp\\source\\repos\\daticianproj\\core\\application\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|solutionrelative:core\\application\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -18,24 +38,89 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "KonsumeContextModelSnapshot.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Migrations\\KonsumeContextModelSnapshot.cs",
+              "RelativeDocumentMoniker": "Migrations\\KonsumeContextModelSnapshot.cs",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Migrations\\KonsumeContextModelSnapshot.cs",
+              "RelativeToolTip": "Migrations\\KonsumeContextModelSnapshot.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAGQAAABgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-09T20:27:50.867Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "20240609202147_Initial.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Migrations\\20240609202147_Initial.cs",
+              "RelativeDocumentMoniker": "Migrations\\20240609202147_Initial.cs",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Migrations\\20240609202147_Initial.cs",
+              "RelativeToolTip": "Migrations\\20240609202147_Initial.cs",
+              "ViewState": "AQIAAKwAAAAAAAAAAAAQwMcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-09T20:22:56.758Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Profile.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Core\\Domain\\Entities\\Profile.cs",
+              "RelativeDocumentMoniker": "Core\\Domain\\Entities\\Profile.cs",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Core\\Domain\\Entities\\Profile.cs",
+              "RelativeToolTip": "Core\\Domain\\Entities\\Profile.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-09T20:19:24.941Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ProfileService.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Core\\Application\\Services\\ProfileService.cs",
+              "RelativeDocumentMoniker": "Core\\Application\\Services\\ProfileService.cs",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Core\\Application\\Services\\ProfileService.cs",
+              "RelativeToolTip": "Core\\Application\\Services\\ProfileService.cs",
+              "ViewState": "AQIAALEAAAAAAAAAAAAowJ8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-09T20:18:57.456Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "KonsumeContext.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Infrastructure\\Context\\KonsumeContext.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Context\\KonsumeContext.cs",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Infrastructure\\Context\\KonsumeContext.cs",
+              "RelativeToolTip": "Infrastructure\\Context\\KonsumeContext.cs",
+              "ViewState": "AQIAADQAAAAAAAAAAADwv1MAAABqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-09T20:18:21.846Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "EmailService.cs",
               "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Core\\Application\\Services\\EmailService.cs",
               "RelativeDocumentMoniker": "Core\\Application\\Services\\EmailService.cs",
               "ToolTip": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Core\\Application\\Services\\EmailService.cs",
               "RelativeToolTip": "Core\\Application\\Services\\EmailService.cs",
-              "ViewState": "AQIAABgAAAAAAAAAAAA1wCkAAAASAAAA",
+              "ViewState": "AQIAABkAAAAAAAAAAAAQwC4AAAAyAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-09T14:35:15.176Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "UserController.cs",
               "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\DaticianProj\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "Controllers\\UserController.cs",
@@ -43,8 +128,7 @@
               "RelativeToolTip": "Controllers\\UserController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-09T14:23:31.804Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-09T14:23:31.804Z"
             }
           ]
         }
