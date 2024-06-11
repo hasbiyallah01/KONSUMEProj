@@ -239,7 +239,7 @@ namespace DaticianProj.Core.Application.Services
                 };
             }
 
-            var loginUserId = _httpContext.HttpContext.User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier).Value;
+            var loginUserId = _httpContext.HttpContext.User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Email).Value;
             profile.DateOfBirth = DateTime.SpecifyKind(request.DateOfBirth, DateTimeKind.Utc);
             profile.Gender = (Domain.Enum.Gender)(int)request.Gender;
             profile.Height = request.Height;

@@ -20,36 +20,51 @@ namespace DaticianProj.Core.Application.Services
             _emailConfiguration = emailConfiguration.Value;
         }
 
-        
+
 
         public async Task<BaseResponse> SendNotificationToUserAsync(Profile profile)
         {
-
             var mailRecieverRequestDto = new MailRecieverDto
             {
                 Email = profile.User.Email,
                 Name = profile.User.FirstName + " " + profile.User.LastName,
             };
-            await SendEmailAsync(mailRecieverRequestDto, new MailRequests { Body = $"<P>We are excited to announce that you've been granted access to Konsume, the cutting-edge AI-driven" +
+
+            string emailBody = $"<p>We are excited to announce that you've been granted access to Konsume, the cutting-edge AI-driven" +
                 $" platform revolutionizing personalized nutrition and diet management!</p>\r\n<p>With Konsume, you have the power to harness AI technology to tailor your diet and nutritional" +
                 $" intake according to your unique goals and health conditions. Whether you're aiming to shed a few pounds, bulk up, or manage specific health concerns like allergies or diabetes," +
                 $" Konsume is your ultimate companion on your wellness journey.</p>\r\n<p>Say goodbye to the tedious process of scouring the internet for meal ideas and nutritional information." +
-                $" Konsume's intuitive interface recommends customized meals and snacks, saving you time and effort while ensuring that every bite aligns with your dietary objectives.</p>\r\n<p>" +
-                $"But that's not all—Konsume goes beyond mere recommendations. With our innovative image recognition feature, simply snap a photo of any meal or snack, and let the AI analyze its" +
+                $" Konsume's intuitive interface recommends customized meals and snacks, saving you time and effort while ensuring that every bite aligns with your dietary objectives.</p>\r\n" +
+                $"<p>But that's not all—Konsume goes beyond mere recommendations. With our innovative image recognition feature, simply snap a photo of any meal or snack, and let the AI analyze its" +
                 $" nutritional content. Discover how each food item impacts your meal plan, goals, and overall health, empowering you to make informed choices every step of the way.</p>\r\n" +
                 $"<p>Welcome to Konsume, where personalized nutrition meets cutting-edge technology. We're thrilled to have you on board and can't wait to see the incredible progress you'll " +
                 $"achieve with our platform!</p>\r\n<p>Best regards,<br/>\r\n[ADMIN/KONSUME]</p> <img src=\"https://drive.google.com/uc?export=view&id=1KH6x4h7J0PCGE7yDiJj4YUBDYPHPBd3B\" " +
-                $"alt=\"Konsume Logo\" style=\"display: block; margin: 0 auto;\">\r\n", Title = "Health Tracker" });
+                $"alt=\"Konsume Logo\" style=\"display: block; margin: 0 auto;\">\r\n";
 
+            var mailRequest = new MailRequests
+            {
+                Body = emailBody,
+                Title = "Health Tracker",
+                HtmlContent = emailBody
+            };
+
+            await SendEmailAsync(mailRecieverRequestDto, mailRequest);
 
             return new BaseResponse
             {
-                Message = "Invalid Email Address",
-                IsSuccessful = false,
+                Message = "Notification sent successfully",
+                IsSuccessful = true,
             };
         }
+
         public Task SendEmailClient(string msg, string title, string email)
         {
+            if (string.IsNullOrEmpty(msg))
+            {
+                Console.WriteLine("Error: Email message content is null or empty.");
+                throw new ArgumentNullException(nameof(msg), "Email message content cannot be null or empty");
+            }
+
             var message = new MimeMessage();
             message.To.Add(MailboxAddress.Parse(email));
             message.From.Add(new MailboxAddress(_emailConfiguration.EmailSenderName, _emailConfiguration.EmailSenderAddress));
@@ -73,7 +88,7 @@ namespace DaticianProj.Core.Application.Services
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"Error occured in email client", DateTime.UtcNow.ToLongTimeString());
+                    Console.WriteLine($"Error occurred in email client: {ex.Message}", DateTime.UtcNow.ToLongTimeString());
                     throw;
                 }
                 finally
@@ -85,6 +100,7 @@ namespace DaticianProj.Core.Application.Services
             return Task.CompletedTask;
         }
 
+
         public async Task<bool> SendEmailAsync(MailRecieverDto model, MailRequests request)
         {
             try
@@ -93,20 +109,21 @@ namespace DaticianProj.Core.Application.Services
                 string buildContent = $"Dear {model.Name}," +
                                             $"<p>{request.Body}</p>";
 
+                if (string.IsNullOrWhiteSpace(request.HtmlContent))
+                {
+                    throw new ArgumentNullException(nameof(request.HtmlContent), "Email content cannot be null or empty");
+                }
+
                 await SendEmailClient(request.HtmlContent, request.Title, model.Email);
                 return true;
-
-
-
             }
             catch (Exception ex)
             {
-
                 Console.WriteLine(ex.Message);
-                throw new Exception(
-                    $"The is an error while sending email");
+                throw new Exception("There was an error while sending email");
             }
         }
+
     }
 
 }

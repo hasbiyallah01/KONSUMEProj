@@ -40,7 +40,7 @@ namespace DaticianProj.Migrations
                     b.Property<string>("CreatedBy")
                         .HasColumnType("text");
 
-                    b.Property<DateTime>("DateCreated")
+                    b.Property<DateTime?>("DateCreated")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<DateTime?>("DateModified")
@@ -97,7 +97,7 @@ namespace DaticianProj.Migrations
                             Id = 1,
                             AllergiesSerialized = "[]",
                             CreatedBy = "1",
-                            DateCreated = new DateTime(2024, 6, 9, 20, 21, 47, 18, DateTimeKind.Utc).AddTicks(3309),
+                            DateCreated = new DateTime(2024, 6, 11, 8, 58, 12, 249, DateTimeKind.Utc).AddTicks(8114),
                             DateOfBirth = new DateTime(2008, 3, 19, 0, 0, 0, 0, DateTimeKind.Utc),
                             Gender = 2,
                             GoalsSerialized = "[]",
@@ -120,7 +120,7 @@ namespace DaticianProj.Migrations
                     b.Property<string>("CreatedBy")
                         .HasColumnType("text");
 
-                    b.Property<DateTime>("DateCreated")
+                    b.Property<DateTime?>("DateCreated")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<DateTime?>("DateModified")
@@ -148,7 +148,7 @@ namespace DaticianProj.Migrations
                         {
                             Id = 1,
                             CreatedBy = "1",
-                            DateCreated = new DateTime(2024, 6, 9, 20, 21, 46, 929, DateTimeKind.Utc).AddTicks(8861),
+                            DateCreated = new DateTime(2024, 6, 11, 8, 58, 12, 131, DateTimeKind.Utc).AddTicks(7605),
                             IsDeleted = false,
                             Name = "Admin"
                         },
@@ -156,7 +156,7 @@ namespace DaticianProj.Migrations
                         {
                             Id = 2,
                             CreatedBy = "1",
-                            DateCreated = new DateTime(2024, 6, 9, 20, 21, 46, 929, DateTimeKind.Utc).AddTicks(8866),
+                            DateCreated = new DateTime(2024, 6, 11, 8, 58, 12, 131, DateTimeKind.Utc).AddTicks(7618),
                             IsDeleted = false,
                             Name = "Patient"
                         });
@@ -173,7 +173,7 @@ namespace DaticianProj.Migrations
                     b.Property<string>("CreatedBy")
                         .HasColumnType("text");
 
-                    b.Property<DateTime>("DateCreated")
+                    b.Property<DateTime?>("DateCreated")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<DateTime?>("DateModified")
@@ -215,12 +215,12 @@ namespace DaticianProj.Migrations
                         {
                             Id = 1,
                             CreatedBy = "1",
-                            DateCreated = new DateTime(2024, 6, 9, 20, 21, 46, 929, DateTimeKind.Utc).AddTicks(9038),
+                            DateCreated = new DateTime(2024, 6, 11, 8, 58, 12, 131, DateTimeKind.Utc).AddTicks(7851),
                             Email = "oyebohm@gmail.com",
                             FirstName = "Hasbiy",
                             IsDeleted = false,
                             LastName = "Oyebo",
-                            Password = "$2a$10$gSpEJbYFZmjG3C1CYLgYKe1nzJ0pLnuFqy9.KuSH4oEzn9LhIH7n6",
+                            Password = "$2a$10$BPFJPbAswKcKhmprHUwxAOqIS3OeGfpCP.m4xwZ3ze5m/Xx1bpLNa",
                             RoleId = 1
                         });
                 });
@@ -236,7 +236,7 @@ namespace DaticianProj.Migrations
                     b.Property<string>("CreatedBy")
                         .HasColumnType("text");
 
-                    b.Property<DateTime>("DateCreated")
+                    b.Property<DateTime?>("DateCreated")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<DateTime?>("DateModified")
@@ -278,7 +278,7 @@ namespace DaticianProj.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<DateTime>("DateCreated")
+                    b.Property<DateTime?>("DateCreated")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<DateTime?>("DateModified")

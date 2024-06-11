@@ -45,7 +45,9 @@ namespace DaticianProj.Core.Application.Services
 
         public async Task<BaseResponse<UserResponse>> CreateUser(UserRequest request)
         {
-            int randomCode = random.Next(10000, 99999);
+            int randomCode = new Random().Next(10000, 99999);
+
+            // Check if the email already exists
             var exists = await _userRepository.ExistsAsync(request.Email);
             if (exists)
             {
@@ -56,6 +58,7 @@ namespace DaticianProj.Core.Application.Services
                 };
             }
 
+            // Check if the password and confirm password match
             if (request.Password != request.ConfirmPassword)
             {
                 return new BaseResponse<UserResponse>
@@ -65,6 +68,7 @@ namespace DaticianProj.Core.Application.Services
                 };
             }
 
+            // Get the role for the user
             var role = await _roleRepository.GetAsync(r => r.Name.ToLower() == "patient");
             if (role == null)
             {
@@ -75,10 +79,11 @@ namespace DaticianProj.Core.Application.Services
                 };
             }
 
+            // Create the user entity
             var user = new User
             {
                 Email = request.Email,
-                Password = BCrypt.Net.BCrypt.HashPassword( request.Password),
+                Password = BCrypt.Net.BCrypt.HashPassword(request.Password),
                 FirstName = request.FirstName,
                 LastName = request.LastName,
                 DateCreated = DateTime.UtcNow,
@@ -88,9 +93,14 @@ namespace DaticianProj.Core.Application.Services
                 CreatedBy = "1"
             };
 
+            // Add user to the role and update the role
             role.Users.Add(user);
             _roleRepository.Update(role);
+
+            // Add the user to the repository
             var newUser = await _userRepository.AddAsync(user);
+
+            // Create verification code
             var code = new VerificationCode
             {
                 Code = randomCode,
@@ -98,6 +108,7 @@ namespace DaticianProj.Core.Application.Services
             };
             await _verificationCodeRepository.Create(code);
 
+            // Send email with the confirmation code
             try
             {
                 var mailRequest = new MailRequests
@@ -105,7 +116,7 @@ namespace DaticianProj.Core.Application.Services
                     Subject = "Confirmation Code",
                     ToEmail = user.Email,
                     Title = "Your Confirmation Code",
-                    HtmlContent = $"<html><body><h1>Hello {user.FirstName}, Welcome KONSUME.</h1><h4>Your confirmation code is {code.Code} to continue with the registration</h4></body></html>",
+                    HtmlContent = $"<html><body><h1>Hello {user.FirstName}, Welcome to KONSUME.</h1><h4>Your confirmation code is {code.Code} to continue with the registration</h4></body></html>"
                 };
 
                 await _emailService.SendEmailAsync(new MailRecieverDto { Name = user.FirstName, Email = user.Email }, mailRequest);
@@ -115,14 +126,18 @@ namespace DaticianProj.Core.Application.Services
                 Console.WriteLine($"Error occurred while sending email: {ex.Message}");
                 return new BaseResponse<UserResponse>
                 {
-                    Message = $"An error occurred while sending email{ex.Message}",
+                    Message = $"An error occurred while sending email: {ex.Message}",
                     IsSuccessful = false
                 };
             }
+
+            // Save all changes to the database
             await _unitOfWork.SaveAsync();
+
+            // Return the response
             return new BaseResponse<UserResponse>
             {
-                Message = "Check Your Mail And Complete Your Registration",
+                Message = "Check your email and complete your registration",
                 IsSuccessful = true,
                 Value = new UserResponse
                 {
@@ -131,13 +146,12 @@ namespace DaticianProj.Core.Application.Services
                     Email = user.Email,
                     RoleId = user.RoleId,
                     RoleName = user.Role.Name,
-                    Role = user.Role,
+                    Role = user.Role
                 }
             };
         }
 
 
-        
 
 
         public async Task<BaseResponse> CreateUserUsingAuthAsync(string token, UserRequest request)
@@ -345,29 +359,31 @@ namespace DaticianProj.Core.Application.Services
 
         public async Task<BaseResponse<UserResponse>> Login(LoginRequestModel model)
         {
-            var user = await _userRepository.GetAsync(user => user.Email == model.Email && user.Password == model.Password);
-            if (user == null)
+            var user = await _userRepository.GetAsync(model.Email);
+            //var user = await _userRepository.GetAsync(user => user.Email == model.Email && user.Password == BCrypt.Net.BCrypt.HashPassword(model.Password));
+            if (user.Email == model.Email && BCrypt.Net.BCrypt.Verify(model.Password, user.Password))
             {
+
+                var role = await _roleRepository.GetAsync(r => r.Name.ToLower() == "patient");
                 return new BaseResponse<UserResponse>
                 {
-                    Message = "Invalid Credentials",
-                    IsSuccessful = false
+                    Message = "Login Successfull",
+                    IsSuccessful = true,
+                    Value = new UserResponse
+                    {
+                        Id = user.Id,
+                        FullName = user.FirstName + " " + user.LastName,
+                        Email = user.Email,
+                        RoleId = role.Id,
+                        RoleName = role.Name,
+                        Role = user.Role,
+                    }
                 };
             }
-            var role = await _roleRepository.GetAsync(r => r.Name.ToLower() == "patient");
             return new BaseResponse<UserResponse>
             {
-                Message = "Login Successfull",
-                IsSuccessful = true,
-                Value = new UserResponse
-                {
-                    Id = user.Id,
-                    FullName = user.FirstName + " " + user.LastName,
-                    Email = user.Email,
-                    RoleId = role.Id,
-                    RoleName = role.Name,
-                    Role = user.Role,
-                }
+                Message = "Invalid Credentials",
+                IsSuccessful = false
             };
         }
     }

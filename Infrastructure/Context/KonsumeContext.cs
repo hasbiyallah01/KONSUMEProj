@@ -1,5 +1,6 @@
 ﻿using DaticianProj.Core.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Org.BouncyCastle.Asn1.Ocsp;
 using Project.Models.Entities;
 using System.Text.Json;
@@ -24,8 +25,23 @@ namespace DaticianProj.Infrastructure.Context
         {
             base.ConfigureConventions(configurationBuilder);
         }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
+            foreach (var entityType in modelBuilder.Model.GetEntityTypes())
+            {
+                foreach (var property in entityType.GetProperties())
+                {
+                    if (property.ClrType == typeof(DateTime) || property.ClrType == typeof(DateTime?))
+                    {
+                        property.SetValueConverter(new ValueConverter<DateTime, DateTime>(
+                            v => v.ToUniversalTime(),
+                            v => DateTime.SpecifyKind(v, DateTimeKind.Utc)));
+                    }
+                }
+            }
+
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<Role>().Property<int>("Id").ValueGeneratedOnAdd();

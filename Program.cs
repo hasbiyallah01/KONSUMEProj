@@ -60,12 +60,14 @@ builder.Services.AddDbContext<KonsumeContext>(options => options.UseNpgsql(build
 //builder.Services.AddDbContext<KonsumeContext>(opt => opt.UseMySQL(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddTransient<IUserRepository, UserRepository>();
+builder.Services.AddTransient<IProfileRepository, ProfileRepository>();
 builder.Services.AddTransient<IRoleRepository, RoleRepository>();
 builder.Services.AddTransient<IVerificationCodeRepository, VerificationCodeRepository>();
 builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
 builder.Services.AddTransient<IIdentityService, IdentityService>();
 builder.Services.AddTransient<IUserService, UserService>();
 builder.Services.AddTransient<IRoleService, RoleService>();
+builder.Services.AddTransient<IProfileService, ProfileService>();
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddScoped<IUserInteractionService, UserInteractionService>();
 builder.Services.AddScoped<IVerificationCodeService, VerificationCodeService>();
