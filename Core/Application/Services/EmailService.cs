@@ -30,16 +30,20 @@ namespace DaticianProj.Core.Application.Services
                 Name = profile.User.FirstName + " " + profile.User.LastName,
             };
 
-            string emailBody = $"<p>We are excited to announce that you've been granted access to Konsume, the cutting-edge AI-driven" +
-                $" platform revolutionizing personalized nutrition and diet management!</p>\r\n<p>With Konsume, you have the power to harness AI technology to tailor your diet and nutritional" +
-                $" intake according to your unique goals and health conditions. Whether you're aiming to shed a few pounds, bulk up, or manage specific health concerns like allergies or diabetes," +
-                $" Konsume is your ultimate companion on your wellness journey.</p>\r\n<p>Say goodbye to the tedious process of scouring the internet for meal ideas and nutritional information." +
-                $" Konsume's intuitive interface recommends customized meals and snacks, saving you time and effort while ensuring that every bite aligns with your dietary objectives.</p>\r\n" +
-                $"<p>But that's not all—Konsume goes beyond mere recommendations. With our innovative image recognition feature, simply snap a photo of any meal or snack, and let the AI analyze its" +
-                $" nutritional content. Discover how each food item impacts your meal plan, goals, and overall health, empowering you to make informed choices every step of the way.</p>\r\n" +
-                $"<p>Welcome to Konsume, where personalized nutrition meets cutting-edge technology. We're thrilled to have you on board and can't wait to see the incredible progress you'll " +
-                $"achieve with our platform!</p>\r\n<p>Best regards,<br/>\r\n[ADMIN/KONSUME]</p> <img src=\"https://drive.google.com/uc?export=view&id=1KH6x4h7J0PCGE7yDiJj4YUBDYPHPBd3B\" " +
-                $"alt=\"Konsume Logo\" style=\"display: block; margin: 0 auto;\">\r\n";
+            string emailBody = $"<p>Hello friend,</p>\r\n" +
+                                $"<p>Welcome to Konsume! We’re thrilled to have you join our community.</p>\r\n" +
+                                $"<p>Konsume is here to revolutionize your nutrition journey with our AI-driven platform. Whether you want to lose weight," +
+                                $" build muscle, or manage specific health needs, we’ve got you covered. Our smart technology tailors meal plans just for you," +
+                                $" making healthy eating easy and enjoyable.</p>\r\n" +
+                                $"<p>No more endless searching for meal ideas! With Konsume, you'll get customized meal and snack recommendations that fit your" +
+                                $" goals. Plus, our cool image recognition feature lets you snap a photo of your food, and our AI will analyze its nutritional" +
+                                $" content. Simple, right?</p>\r\n" +
+                                $"<p>Ready to get started? <a href='your-dashboard-url'>Log in to your dashboard</a> and begin your personalized nutrition " +
+                                $"journey today.</p>\r\n" +
+                                $"<p>Best regards,<br/>Hasbiy from Konsume</p>\r\n" +
+                                $"<img src=\"https://drive.google.com/uc?export=view&id=1KH6x4h7J0PCGE7yDiJj4YUBDYPHPBd3B\" alt=\"Konsume Logo\" " +
+                                $"style=\"display: block; margin: 0 auto;\">\r\n";
+
 
             var mailRequest = new MailRequests
             {

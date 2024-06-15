@@ -25,6 +25,8 @@ builder.Services.AddCors(cors =>
         pol.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
     });
 });
+
+
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "KONSUME", Version = "v1" });

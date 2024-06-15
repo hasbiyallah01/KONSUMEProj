@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DaticianProj")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bda65ef21586c30673c4c6f3e298935982b58efc")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+80ec39e2d0e6d464f979a0e9a0c44aac52467281")]
 [assembly: System.Reflection.AssemblyProductAttribute("DaticianProj")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DaticianProj")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

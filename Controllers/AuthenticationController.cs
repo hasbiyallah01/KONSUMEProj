@@ -29,7 +29,7 @@ namespace KonsumeTestRun.Controllers
             if (user.IsSuccessful == true)
             {
                 var token = _identityService.GenerateToken(_config["Jwt:Key"], _config["Jwt:Issuer"], user.Value);
-                return Ok(token);
+                return Ok(new {token, user.Value, user.Message });
             }
             else
             {
@@ -53,7 +53,7 @@ namespace KonsumeTestRun.Controllers
 
             if (user.IsSuccessful == true)
             {
-                return Ok(user.Message);
+                return Ok(new { user.Value, user.Message });
             }
             else
             {
