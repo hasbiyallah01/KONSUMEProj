@@ -96,7 +96,8 @@ namespace DaticianProj.Core.Application.Services
 
         public async Task<BaseResponse<VerificationCodeDto>> VerifyCode(int id, int verificationcode)
         {
-            var code = await _verificationCodeRepository.Get(x => x.User.Id == id && x.Code == verificationcode);
+            var user = await _userRepository.GetAsync(id);
+            var code = await _verificationCodeRepository.Get(x => x.Code == verificationcode && user.Id == id);
             if (code == null)
             {
                 return new BaseResponse<VerificationCodeDto>
@@ -113,7 +114,6 @@ namespace DaticianProj.Core.Application.Services
                     IsSuccessful = false,
                 };
             }
-            var user = await _userRepository.GetAsync(id);
             user.IsDeleted = false;
             _userRepository.Update(user);
             return new BaseResponse<VerificationCodeDto>
