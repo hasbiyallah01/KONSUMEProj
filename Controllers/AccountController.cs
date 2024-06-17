@@ -23,10 +23,13 @@ namespace DaticianProj.Controllers
         }
 
         [HttpGet("login")]
-        public IActionResult Login(string returnUrl = "/")
+        public async Task Login(string returnUrl = "/")
         {
-            var properties = new AuthenticationProperties { RedirectUri = Url.Action("GoogleResponse", new { ReturnUrl = returnUrl }) };
-            return Challenge(properties, GoogleDefaults.AuthenticationScheme);
+            await HttpContext.ChallengeAsync(GoogleDefaults.AuthenticationScheme,
+                new AuthenticationProperties
+                {
+                    RedirectUri = Url.Action("GoogleResponse"),
+                });
         }
 
         [HttpGet("google-response")]
@@ -35,6 +38,14 @@ namespace DaticianProj.Controllers
             _logger.LogInformation("GoogleResponse called with returnUrl: {ReturnUrl}", returnUrl);
 
             var result = await HttpContext.AuthenticateAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            var claims = result.Principal.Identities.FirstOrDefault().Claims.Select(claim => new
+            { 
+                claim.Issuer,
+                claim.OriginalIssuer,
+                claim.Type,
+                claim.Value
+            });
+
             if (!result.Succeeded)
             {
                 _logger.LogError("Authentication failed.");
@@ -66,7 +77,7 @@ namespace DaticianProj.Controllers
             if (userResponse.IsSuccessful)
             {
                 _logger.LogInformation("User created successfully: {UserMessage}", userResponse.Message);
-                return Ok(new { Message = userResponse.Message });
+                return Ok(new { Message = userResponse.Message, claims });
             }
             else
             {

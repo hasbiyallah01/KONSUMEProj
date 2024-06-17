@@ -6,6 +6,7 @@ using DaticianProj.Infrastructure.Context;
 using DaticianProj.Infrastructure.Repositories;
 using KonsumeTestRun.Core.Application.Interfaces.Repositories;
 using KonsumeTestRun.Infrastructure.Repositories;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
@@ -18,11 +19,12 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllers()
-.AddJsonOptions(options =>
-{
-    options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;
-    options.JsonSerializerOptions.WriteIndented = true;
-});
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;
+        options.JsonSerializerOptions.WriteIndented = true;
+    });
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddCors(cors =>
 {
@@ -34,7 +36,6 @@ builder.Services.AddCors(cors =>
            .AllowCredentials();
     });
 });
-
 
 builder.Services.AddSwaggerGen(c =>
 {
@@ -64,16 +65,15 @@ builder.Services.AddSwaggerGen(c =>
         }
     });
 });
+
 builder.Services.ConfigureApplicationCookie(options =>
 {
     options.Cookie.SameSite = SameSiteMode.None;
     options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
 });
 
-
 builder.Services.Configure<EmailConfiguration>(builder.Configuration.GetSection("SMTPConfig"));
 builder.Services.AddDbContext<KonsumeContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
-//builder.Services.AddDbContext<KonsumeContext>(opt => opt.UseMySQL(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddTransient<IUserRepository, UserRepository>();
 builder.Services.AddTransient<IProfileRepository, ProfileRepository>();
@@ -89,12 +89,18 @@ builder.Services.AddScoped<IUserInteractionService, UserInteractionService>();
 builder.Services.AddScoped<IVerificationCodeService, VerificationCodeService>();
 builder.Services.AddScoped<IEmailService, EmailService>();
 
-
-//builder.Services.AddControllers();
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddCookie()
+.AddGoogle(options =>
+{
+    options.ClientId = builder.Configuration["GoogleKeys:ClientId"];
+    options.ClientSecret = builder.Configuration["GoogleKeys:ClientSecret"];
+    options.SaveTokens = true;
 })
 .AddJwtBearer(options =>
 {
@@ -108,15 +114,7 @@ builder.Services.AddAuthentication(options =>
         ValidAudience = builder.Configuration["Jwt:Audience"],
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
     };
-})
-.AddGoogle(googleOptions =>
-{
-    googleOptions.ClientId = builder.Configuration["Authentication:Google:ClientId"];
-    googleOptions.ClientSecret = builder.Configuration["Authentication:Google:ClientSecret"];
-    googleOptions.SaveTokens = true;
-})
-.AddCookie(CookieAuthenticationDefaults.AuthenticationScheme);
-
+});
 
 var app = builder.Build();
 
@@ -125,6 +123,7 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+    app.UseDeveloperExceptionPage();
 }
 else
 {
@@ -136,7 +135,6 @@ else
     });
 }
 
-
 app.UseHttpsRedirection();
 app.UseCors("konsume");
 app.UseAuthentication();
@@ -144,7 +142,5 @@ app.UseAuthorization();
 
 app.UseMiddleware<ExceptionHndlingMiddleWare>();
 
-
 app.MapControllers();
 app.Run();
-

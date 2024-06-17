@@ -11,7 +11,8 @@ namespace DaticianProj.Models.ProfileModel
         public DateTime DateOfBirth { get; set; }
 
         [Required]
-        public Gender Gender { get; set; }
+        [RegularExpression("Male|Female", ErrorMessage = "Gender must be Male or Female.")]
+        public string Gender { get; set; }
 
         [Required]
         [Range(1, int.MaxValue, ErrorMessage = "Height must be greater than 0.")]

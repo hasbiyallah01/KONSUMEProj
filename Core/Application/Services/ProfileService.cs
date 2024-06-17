@@ -142,7 +142,22 @@ namespace DaticianProj.Core.Application.Services
             }
             var profile = user.Profile ?? new Profile();
             profile.DateOfBirth = DateTime.SpecifyKind(request.DateOfBirth, DateTimeKind.Utc);
-            profile.Gender = (Domain.Enum.Gender)(int)request.Gender;
+            if (string.Equals(request.Gender, "Male", StringComparison.OrdinalIgnoreCase))
+            {
+                profile.Gender = Domain.Enum.Gender.Male;
+            }
+            else if (string.Equals(request.Gender, "Female", StringComparison.OrdinalIgnoreCase))
+            {
+                profile.Gender = Domain.Enum.Gender.Female;
+            }
+            else
+            {
+                return new BaseResponse<ProfileResponse>
+                {
+                    Message = "Invalid value for Gender. Please provide 'Male' or 'Female'.",
+                    IsSuccessful = false
+                };
+            }
             profile.Height = request.Height;
             profile.Weight = request.Weight;
             profile.UserGoals = request.UserGoals;
@@ -241,7 +256,22 @@ namespace DaticianProj.Core.Application.Services
 
             var loginUserId = _httpContext.HttpContext.User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Email).Value;
             profile.DateOfBirth = DateTime.SpecifyKind(request.DateOfBirth, DateTimeKind.Utc);
-            profile.Gender = (Domain.Enum.Gender)(int)request.Gender;
+            if (string.Equals(request.Gender, "Male", StringComparison.OrdinalIgnoreCase))
+            {
+                profile.Gender = Domain.Enum.Gender.Male;
+            }
+            else if (string.Equals(request.Gender, "Female", StringComparison.OrdinalIgnoreCase))
+            {
+                profile.Gender = Domain.Enum.Gender.Female;
+            }
+            else
+            {
+                return new BaseResponse
+                {
+                    Message = "Invalid value for Gender. Please provide 'Male' or 'Female'.",
+                    IsSuccessful = false
+                };
+            }
             profile.Height = request.Height;
             profile.Weight = request.Weight;
             profile.UserGoals = request.UserGoals;

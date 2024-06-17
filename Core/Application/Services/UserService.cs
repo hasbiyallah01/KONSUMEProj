@@ -163,7 +163,11 @@ namespace DaticianProj.Core.Application.Services
             }
             catch (InvalidJwtException)
             {
-                return null;
+                return new BaseResponse
+                {
+                    Message = "Invalid token.",
+                    IsSuccessful = false
+                };
             }
 
             var googleUser = new UserResponse
@@ -357,7 +361,6 @@ namespace DaticianProj.Core.Application.Services
         public async Task<BaseResponse<UserResponse>> Login(LoginRequestModel model)
         {
             var user = await _userRepository.GetAsync(model.Email);
-            //var user = await _userRepository.GetAsync(user => user.Email == model.Email && user.Password == BCrypt.Net.BCrypt.HashPassword(model.Password));
             if (user.Email == model.Email && BCrypt.Net.BCrypt.Verify(model.Password, user.Password))
             {
 
