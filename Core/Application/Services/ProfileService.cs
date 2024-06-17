@@ -152,7 +152,7 @@ namespace DaticianProj.Core.Application.Services
             profile.DietType = request.DietType;
             profile.NoOfMealPerDay = request.NoOfMealPerDay;
             profile.SnackPreference = request.SnackPreference;
-            profile.UserId = Userid;
+            profile.UserId = user.Id;
             profile.User = user;
             profile.DateCreated = DateTime.UtcNow;
             profile.IsDeleted = false;

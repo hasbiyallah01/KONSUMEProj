@@ -10,7 +10,6 @@ namespace DaticianProj.Models.UserModel
         public string Email { get; set; }
         public int RoleId { get; set; }
         public string RoleName { get; set; }
-        public Role Role { get; set; }
     }
 
     public class LoginResponseModel : BaseResponse

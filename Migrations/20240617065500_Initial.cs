@@ -9,7 +9,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace DaticianProj.Migrations
 {
     /// <inheritdoc />
-    public partial class @new : Migration
+    public partial class Initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -146,19 +146,19 @@ namespace DaticianProj.Migrations
                 columns: new[] { "Id", "CreatedBy", "DateCreated", "DateModified", "Description", "IsDeleted", "ModifiedBy", "Name" },
                 values: new object[,]
                 {
-                    { 1, "1", new DateTime(2024, 6, 11, 8, 58, 12, 131, DateTimeKind.Utc).AddTicks(7605), null, null, false, null, "Admin" },
-                    { 2, "1", new DateTime(2024, 6, 11, 8, 58, 12, 131, DateTimeKind.Utc).AddTicks(7618), null, null, false, null, "Patient" }
+                    { 1, "1", new DateTime(2024, 6, 17, 6, 54, 59, 867, DateTimeKind.Utc).AddTicks(1343), null, null, false, null, "Admin" },
+                    { 2, "1", new DateTime(2024, 6, 17, 6, 54, 59, 867, DateTimeKind.Utc).AddTicks(1360), null, null, false, null, "Patient" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Users",
                 columns: new[] { "Id", "CreatedBy", "DateCreated", "DateModified", "Email", "FirstName", "IsDeleted", "LastName", "ModifiedBy", "Password", "RoleId" },
-                values: new object[] { 1, "1", new DateTime(2024, 6, 11, 8, 58, 12, 131, DateTimeKind.Utc).AddTicks(7851), null, "oyebohm@gmail.com", "Hasbiy", false, "Oyebo", null, "$2a$10$BPFJPbAswKcKhmprHUwxAOqIS3OeGfpCP.m4xwZ3ze5m/Xx1bpLNa", 1 });
+                values: new object[] { 1, "1", new DateTime(2024, 6, 17, 6, 54, 59, 867, DateTimeKind.Utc).AddTicks(1598), null, "oyebohm@gmail.com", "Hasbiy", false, "Oyebo", null, "$2a$10$AKrKryE.pfrV9ew3kFOvFeVjMd2yfxQbFLip23v9xGqLXRBwxz7j2", 1 });
 
             migrationBuilder.InsertData(
                 table: "Profiles",
                 columns: new[] { "Id", "AllergiesSerialized", "BodyFat", "CreatedBy", "DateCreated", "DateModified", "DateOfBirth", "DietType", "Gender", "GoalsSerialized", "Height", "IsDeleted", "ModifiedBy", "Nationality", "NoOfMealPerDay", "SnackPreference", "UserId", "Weight" },
-                values: new object[] { 1, "[]", null, "1", new DateTime(2024, 6, 11, 8, 58, 12, 249, DateTimeKind.Utc).AddTicks(8114), null, new DateTime(2008, 3, 19, 0, 0, 0, 0, DateTimeKind.Utc), null, 2, "[]", 90, false, null, "Nigerian", null, null, 1, 45 });
+                values: new object[] { 1, "[]", null, "1", new DateTime(2024, 6, 17, 6, 54, 59, 994, DateTimeKind.Utc).AddTicks(687), null, new DateTime(2008, 3, 19, 0, 0, 0, 0, DateTimeKind.Utc), null, 2, "[]", 90, false, null, "Nigerian", null, null, 1, 45 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Profiles_UserId",

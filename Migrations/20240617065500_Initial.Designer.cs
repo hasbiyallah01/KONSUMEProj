@@ -12,15 +12,15 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace DaticianProj.Migrations
 {
     [DbContext(typeof(KonsumeContext))]
-    [Migration("20240611085813_new")]
-    partial class @new
+    [Migration("20240617065500_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.4")
+                .HasAnnotation("ProductVersion", "8.0.6")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
@@ -100,7 +100,7 @@ namespace DaticianProj.Migrations
                             Id = 1,
                             AllergiesSerialized = "[]",
                             CreatedBy = "1",
-                            DateCreated = new DateTime(2024, 6, 11, 8, 58, 12, 249, DateTimeKind.Utc).AddTicks(8114),
+                            DateCreated = new DateTime(2024, 6, 17, 6, 54, 59, 994, DateTimeKind.Utc).AddTicks(687),
                             DateOfBirth = new DateTime(2008, 3, 19, 0, 0, 0, 0, DateTimeKind.Utc),
                             Gender = 2,
                             GoalsSerialized = "[]",
@@ -151,7 +151,7 @@ namespace DaticianProj.Migrations
                         {
                             Id = 1,
                             CreatedBy = "1",
-                            DateCreated = new DateTime(2024, 6, 11, 8, 58, 12, 131, DateTimeKind.Utc).AddTicks(7605),
+                            DateCreated = new DateTime(2024, 6, 17, 6, 54, 59, 867, DateTimeKind.Utc).AddTicks(1343),
                             IsDeleted = false,
                             Name = "Admin"
                         },
@@ -159,7 +159,7 @@ namespace DaticianProj.Migrations
                         {
                             Id = 2,
                             CreatedBy = "1",
-                            DateCreated = new DateTime(2024, 6, 11, 8, 58, 12, 131, DateTimeKind.Utc).AddTicks(7618),
+                            DateCreated = new DateTime(2024, 6, 17, 6, 54, 59, 867, DateTimeKind.Utc).AddTicks(1360),
                             IsDeleted = false,
                             Name = "Patient"
                         });
@@ -218,12 +218,12 @@ namespace DaticianProj.Migrations
                         {
                             Id = 1,
                             CreatedBy = "1",
-                            DateCreated = new DateTime(2024, 6, 11, 8, 58, 12, 131, DateTimeKind.Utc).AddTicks(7851),
+                            DateCreated = new DateTime(2024, 6, 17, 6, 54, 59, 867, DateTimeKind.Utc).AddTicks(1598),
                             Email = "oyebohm@gmail.com",
                             FirstName = "Hasbiy",
                             IsDeleted = false,
                             LastName = "Oyebo",
-                            Password = "$2a$10$BPFJPbAswKcKhmprHUwxAOqIS3OeGfpCP.m4xwZ3ze5m/Xx1bpLNa",
+                            Password = "$2a$10$AKrKryE.pfrV9ew3kFOvFeVjMd2yfxQbFLip23v9xGqLXRBwxz7j2",
                             RoleId = 1
                         });
                 });

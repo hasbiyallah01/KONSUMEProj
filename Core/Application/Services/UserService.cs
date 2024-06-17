@@ -146,7 +146,6 @@ namespace DaticianProj.Core.Application.Services
                     Email = user.Email,
                     RoleId = user.RoleId,
                     RoleName = user.Role.Name,
-                    Role = user.Role
                 }
             };
         }
@@ -233,7 +232,6 @@ namespace DaticianProj.Core.Application.Services
                     Email = user.Email,
                     RoleId = user.RoleId,
                     RoleName = user.Role.Name,
-                    Role = user.Role,
                 }).ToList(),
             };
         }
@@ -261,7 +259,6 @@ namespace DaticianProj.Core.Application.Services
                     Email = user.Email,
                     RoleId = role.Id,
                     RoleName = role.Name,
-                    Role = user.Role,
                 }
             };
         }
@@ -376,7 +373,6 @@ namespace DaticianProj.Core.Application.Services
                         Email = user.Email,
                         RoleId = role.Id,
                         RoleName = role.Name,
-                        Role = user.Role,
                     }
                 };
             }

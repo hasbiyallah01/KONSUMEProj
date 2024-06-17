@@ -1,3 +1,4 @@
+using DaticianProj;
 using DaticianProj.Core.Application.Interfaces.Repositories;
 using DaticianProj.Core.Application.Interfaces.Services;
 using DaticianProj.Core.Application.Services;
@@ -16,7 +17,12 @@ using System.Text;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+       .AddJsonOptions(options =>
+       {
+           options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;
+           options.JsonSerializerOptions.WriteIndented = true;
+       });
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddCors(cors =>
 {
@@ -107,16 +113,38 @@ builder.Services.AddAuthentication(options =>
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+/*if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+}*/
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "KONSUME v1");
+    });
 }
+else
+{
+    app.UseSwagger();
+    app.UseSwaggerUI(c =>
+    {
+        c.RoutePrefix = string.Empty;  // Sets the UI path to the application root
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "KONSUME v1");
+    });
+}
+
 
 app.UseHttpsRedirection();
 app.UseCors("konsume");
 app.UseAuthentication();
 app.UseAuthorization();
+
+app.UseMiddleware<ExceptionHndlingMiddleWare>();
+
+
 app.MapControllers();
 app.Run();
 

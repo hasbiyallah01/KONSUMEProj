@@ -30,7 +30,7 @@ namespace DaticianProj.Core.Application.Services
                 Name = profile.User.FirstName + " " + profile.User.LastName,
             };
 
-            string emailBody = $"<p>Hello friend,</p>\r\n" +
+            string emailBody = $"<p>Hello {profile.User.FirstName},</p>\r\n" +
                                 $"<p>Welcome to Konsume! We’re thrilled to have you join our community.</p>\r\n" +
                                 $"<p>Konsume is here to revolutionize your nutrition journey with our AI-driven platform. Whether you want to lose weight," +
                                 $" build muscle, or manage specific health needs, we’ve got you covered. Our smart technology tailors meal plans just for you," +
