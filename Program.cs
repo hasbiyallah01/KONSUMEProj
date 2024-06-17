@@ -28,7 +28,9 @@ builder.Services.AddCors(cors =>
 {
     cors.AddPolicy("konsume", pol =>
     {
-        pol.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+        pol.WithOrigins("http://localhost:3000")
+           .AllowAnyHeader()
+           .AllowAnyMethod();
     });
 });
 
@@ -113,18 +115,10 @@ builder.Services.AddAuthentication(options =>
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-/*if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}*/
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI(c =>
-    {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "KONSUME v1");
-    });
+    app.UseSwaggerUI();
 }
 else
 {
