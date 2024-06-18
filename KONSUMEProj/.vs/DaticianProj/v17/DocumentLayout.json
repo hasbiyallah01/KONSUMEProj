@@ -1,17 +1,21 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\HP\\OneDrive\\Desktop\\BackEnd\\KONSUMEProj\\",
+  "WorkspaceRootPath": "C:\\Users\\HP\\OneDrive\\Desktop\\KONSUMEPROJ\\KONSUMEProj\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|c:\\users\\hp\\onedrive\\desktop\\backend\\konsumeproj\\controllers\\profilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|c:\\users\\hp\\onedrive\\desktop\\konsumeproj\\konsumeproj\\core\\application\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|solutionrelative:core\\application\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|c:\\users\\hp\\onedrive\\desktop\\konsumeproj\\konsumeproj\\controllers\\profilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|solutionrelative:controllers\\profilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|c:\\users\\hp\\onedrive\\desktop\\backend\\konsumeproj\\core\\application\\services\\profileservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|c:\\users\\hp\\onedrive\\desktop\\konsumeproj\\konsumeproj\\core\\application\\services\\profileservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|solutionrelative:core\\application\\services\\profileservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|c:\\users\\hp\\onedrive\\desktop\\backend\\konsumeproj\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "AbsoluteMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|c:\\users\\hp\\onedrive\\desktop\\konsumeproj\\konsumeproj\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{AD44C513-B386-4654-9EE6-09B3E781ED80}|DaticianProj.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
@@ -22,41 +26,53 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ProfileService.cs",
-              "DocumentMoniker": "C:\\Users\\HP\\OneDrive\\Desktop\\BackEnd\\KONSUMEProj\\Core\\Application\\Services\\ProfileService.cs",
-              "RelativeDocumentMoniker": "Core\\Application\\Services\\ProfileService.cs",
-              "ToolTip": "C:\\Users\\HP\\OneDrive\\Desktop\\BackEnd\\KONSUMEProj\\Core\\Application\\Services\\ProfileService.cs",
-              "RelativeToolTip": "Core\\Application\\Services\\ProfileService.cs",
-              "ViewState": "AQIAAEUAAAAAAAAAAAAYwFgAAAAMAAAA",
+              "DocumentIndex": 0,
+              "Title": "EmailService.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\OneDrive\\Desktop\\KONSUMEPROJ\\KONSUMEProj\\Core\\Application\\Services\\EmailService.cs",
+              "RelativeDocumentMoniker": "Core\\Application\\Services\\EmailService.cs",
+              "ToolTip": "C:\\Users\\HP\\OneDrive\\Desktop\\KONSUMEPROJ\\KONSUMEProj\\Core\\Application\\Services\\EmailService.cs",
+              "RelativeToolTip": "Core\\Application\\Services\\EmailService.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAAwCAAAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-18T18:42:19.024Z",
+              "WhenOpened": "2024-06-18T21:56:19.55Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
+              "Title": "ProfileService.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\OneDrive\\Desktop\\KONSUMEPROJ\\KONSUMEProj\\Core\\Application\\Services\\ProfileService.cs",
+              "RelativeDocumentMoniker": "Core\\Application\\Services\\ProfileService.cs",
+              "ToolTip": "C:\\Users\\HP\\OneDrive\\Desktop\\KONSUMEPROJ\\KONSUMEProj\\Core\\Application\\Services\\ProfileService.cs",
+              "RelativeToolTip": "Core\\Application\\Services\\ProfileService.cs",
+              "ViewState": "AQIAAEUAAAAAAAAAAAAYwFgAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T18:42:19.024Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "ProfileController.cs",
-              "DocumentMoniker": "C:\\Users\\HP\\OneDrive\\Desktop\\BackEnd\\KONSUMEProj\\Controllers\\ProfileController.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\OneDrive\\Desktop\\KONSUMEPROJ\\KONSUMEProj\\Controllers\\ProfileController.cs",
               "RelativeDocumentMoniker": "Controllers\\ProfileController.cs",
-              "ToolTip": "C:\\Users\\HP\\OneDrive\\Desktop\\BackEnd\\KONSUMEProj\\Controllers\\ProfileController.cs",
+              "ToolTip": "C:\\Users\\HP\\OneDrive\\Desktop\\KONSUMEPROJ\\KONSUMEProj\\Controllers\\ProfileController.cs",
               "RelativeToolTip": "Controllers\\ProfileController.cs",
-              "ViewState": "AQIAABAAAAAAAAAAAAAzwB4AAAAnAAAA",
+              "ViewState": "AQIAABEAAAAAAAAAAAAAwB4AAAAnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-18T18:42:01.583Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\HP\\OneDrive\\Desktop\\BackEnd\\KONSUMEProj\\appsettings.json",
+              "DocumentMoniker": "C:\\Users\\HP\\OneDrive\\Desktop\\KONSUMEPROJ\\KONSUMEProj\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "C:\\Users\\HP\\OneDrive\\Desktop\\BackEnd\\KONSUMEProj\\appsettings.json",
+              "ToolTip": "C:\\Users\\HP\\OneDrive\\Desktop\\KONSUMEPROJ\\KONSUMEProj\\appsettings.json",
               "RelativeToolTip": "appsettings.json",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAaAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",

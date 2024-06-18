@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\HP\\OneDrive\\Desktop\\BackEnd\\KONSUMEProj\\DaticianProj.csproj": {}
+    "C:\\Users\\HP\\OneDrive\\Desktop\\KONSUMEPROJ\\KONSUMEProj\\DaticianProj.csproj": {}
   },
   "projects": {
-    "C:\\Users\\HP\\OneDrive\\Desktop\\BackEnd\\KONSUMEProj\\DaticianProj.csproj": {
+    "C:\\Users\\HP\\OneDrive\\Desktop\\KONSUMEPROJ\\KONSUMEProj\\DaticianProj.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HP\\OneDrive\\Desktop\\BackEnd\\KONSUMEProj\\DaticianProj.csproj",
+        "projectUniqueName": "C:\\Users\\HP\\OneDrive\\Desktop\\KONSUMEPROJ\\KONSUMEProj\\DaticianProj.csproj",
         "projectName": "DaticianProj",
-        "projectPath": "C:\\Users\\HP\\OneDrive\\Desktop\\BackEnd\\KONSUMEProj\\DaticianProj.csproj",
+        "projectPath": "C:\\Users\\HP\\OneDrive\\Desktop\\KONSUMEPROJ\\KONSUMEProj\\DaticianProj.csproj",
         "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HP\\OneDrive\\Desktop\\BackEnd\\KONSUMEProj\\obj\\",
+        "outputPath": "C:\\Users\\HP\\OneDrive\\Desktop\\KONSUMEPROJ\\KONSUMEProj\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
