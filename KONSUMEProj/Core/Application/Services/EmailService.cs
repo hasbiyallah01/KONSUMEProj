@@ -30,7 +30,7 @@ namespace DaticianProj.Core.Application.Services
                 Name = profile.User.FirstName + " " + profile.User.LastName,
             };
 
-            string emailBody = $"<p>Hello {profile.User.FirstName},</p>\r\n" +
+            string emailBody =  $"<p>Hello {profile.User.FirstName},</p>\r\n" +
                                 $"<p>Welcome to Konsume! We’re thrilled to have you join our community.</p>\r\n" +
                                 $"<p>Konsume is here to revolutionize your nutrition journey with our AI-driven platform. Whether you want to lose weight," +
                                 $" build muscle, or manage specific health needs, we’ve got you covered. Our smart technology tailors meal plans just for you," +
@@ -38,11 +38,12 @@ namespace DaticianProj.Core.Application.Services
                                 $"<p>No more endless searching for meal ideas! With Konsume, you'll get customized meal and snack recommendations that fit your" +
                                 $" goals. Plus, our cool image recognition feature lets you snap a photo of your food, and our AI will analyze its nutritional" +
                                 $" content. Simple, right?</p>\r\n" +
-                                $"<p>Ready to get started? <a href='your-dashboard-url'>Log in to your dashboard</a> and begin your personalized nutrition " +
+                                $"<p>Ready to get started? <a href='https://konsume-v2.vercel.app/auth/login'>Log in to your dashboard</a> and begin your personalized nutrition " +
                                 $"journey today.</p>\r\n" +
                                 $"<p>Best regards,<br/>Hasbiy from Konsume</p>\r\n" +
                                 $"<img src=\"https://drive.google.com/uc?export=view&id=1KH6x4h7J0PCGE7yDiJj4YUBDYPHPBd3B\" alt=\"Konsume Logo\" " +
                                 $"style=\"display: block; margin: 0 auto;\">\r\n";
+
 
 
             var mailRequest = new MailRequests
