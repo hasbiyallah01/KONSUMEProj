@@ -36,17 +36,29 @@ namespace DaticianProj.Core.Application.Services
 
         public async Task<BaseResponse<ICollection<ProfileResponse>>> GetAllProfiles()
         {
-            var profile = await _profileRepository.GetAllAsync();
+            var profiles = await _profileRepository.GetAllAsync();
+            var userIds = profiles.Select(p => p.UserId).ToList();
 
-            return new BaseResponse<ICollection<ProfileResponse>>
+            // Retrieve all users
+            var allUsers = await _userRepository.GetAllAsync();
+
+            // Filter users based on the user IDs present in the profiles
+            var users = allUsers.Where(u => userIds.Contains(u.Id)).ToList();
+
+            // Create a dictionary for quick lookup of users by their ID
+            var userDictionary = users.ToDictionary(u => u.Id, u => u);
+            var profileResponses = profiles.Select(profile =>
             {
-                Message = "List of users",
-                IsSuccessful = true,
-                Value = profile.Select(profile => new ProfileResponse
+                var user = userDictionary.ContainsKey(profile.UserId) ? userDictionary[profile.UserId] : null;
+                var today = DateTime.UtcNow;
+                var age = today.Year - profile.DateOfBirth.Year;
+                if (profile.DateOfBirth.Date > today.AddYears(-age)) age--;
+
+                return new ProfileResponse
                 {
                     Id = profile.Id,
-                    Age = DateTime.UtcNow.Year - profile.DateOfBirth.Year,
-                    Email = profile.User.Email,
+                    Age = age,
+                    Email = user?.Email, // Ensure null check for user
                     DateOfBirth = profile.DateOfBirth,
                     Gender = (Domain.Enum.Gender)(int)profile.Gender,
                     Height = profile.Height,
@@ -58,12 +70,22 @@ namespace DaticianProj.Core.Application.Services
                     DietType = profile.DietType,
                     NoOfMealPerDay = profile.NoOfMealPerDay,
                     SnackPreference = profile.SnackPreference,
-                }).ToList(),
+                };
+            }).ToList();
+
+            return new BaseResponse<ICollection<ProfileResponse>>
+            {
+                Message = "List of users",
+                IsSuccessful = true,
+                Value = profileResponses
             };
+
+           
         }
 
         public async Task<BaseResponse<ProfileResponse>> GetProfile(int id)
         {
+            // Retrieve the profile from the repository
             var profile = await _profileRepository.GetAsync(id);
             if (profile == null)
             {
@@ -73,6 +95,24 @@ namespace DaticianProj.Core.Application.Services
                     IsSuccessful = false
                 };
             }
+
+            // Retrieve the associated user from the repository
+            var user = await _userRepository.GetAsync(profile.UserId);
+            if (user == null)
+            {
+                return new BaseResponse<ProfileResponse>
+                {
+                    Message = "User data is incomplete",
+                    IsSuccessful = false
+                };
+            }
+
+            // Calculate the user's age accurately
+            var today = DateTime.UtcNow;
+            var age = today.Year - profile.DateOfBirth.Year;
+            if (profile.DateOfBirth.Date > today.AddYears(-age)) age--;
+
+            // Create and return the response
             return new BaseResponse<ProfileResponse>
             {
                 Message = "User successfully found",
@@ -80,8 +120,8 @@ namespace DaticianProj.Core.Application.Services
                 Value = new ProfileResponse
                 {
                     Id = profile.Id,
-                    Age = DateTime.UtcNow.Year - profile.DateOfBirth.Year,
-                    Email = profile.User.Email,
+                    Age = age,
+                    Email = user.Email,
                     DateOfBirth = profile.DateOfBirth,
                     Gender = (Domain.Enum.Gender)(int)profile.Gender,
                     Height = profile.Height,
@@ -96,6 +136,8 @@ namespace DaticianProj.Core.Application.Services
                 }
             };
         }
+
+
 
         public async Task<BaseResponse> RemoveProfile(int id)
         {
