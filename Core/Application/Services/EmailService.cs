@@ -48,7 +48,7 @@ namespace DaticianProj.Core.Application.Services
             var mailRequest = new MailRequests
             {
                 Body = emailBody,
-                Title = "Health Tracker",
+                Title = "WELCOME TO KONSUME",
                 HtmlContent = emailBody
             };
 
