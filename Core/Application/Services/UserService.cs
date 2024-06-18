@@ -3,11 +3,9 @@ using DaticianProj.Core.Application.Interfaces.Services;
 using DaticianProj.Core.Domain.Entities;
 using DaticianProj.Models;
 using DaticianProj.Models.UserModel;
-using Google.Apis.Auth;
 using KonsumeTestRun.Core.Application.Interfaces.Repositories;
 using Project.Models.Entities;
 using System.Security.Claims;
-using static Google.Apis.Auth.GoogleJsonWebSignature;
 
 namespace DaticianProj.Core.Application.Services
 {
@@ -29,18 +27,6 @@ namespace DaticianProj.Core.Application.Services
             _emailService = emailService;
         }
 
-        public async Task<GoogleUser> ValidateToken(string token)
-        {
-            GoogleJsonWebSignature.Payload payload;
-
-            payload = await ValidateAsync(token);
-            return new GoogleUser
-            {
-                Email = payload.Email,
-                FirstName = payload.GivenName,
-                LastName = payload.FamilyName,
-            };
-        }
         private static readonly Random random = new Random();
 
         public async Task<BaseResponse<UserResponse>> CreateUser(UserRequest request)
@@ -153,73 +139,7 @@ namespace DaticianProj.Core.Application.Services
 
 
 
-        public async Task<BaseResponse> CreateUserUsingAuthAsync(string token, UserRequest request)
-        {
-            GoogleJsonWebSignature.Payload payload;
-
-            try
-            {
-                payload = await ValidateAsync(token);
-            }
-            catch (InvalidJwtException)
-            {
-                return new BaseResponse
-                {
-                    Message = "Invalid token.",
-                    IsSuccessful = false
-                };
-            }
-
-            var googleUser = new UserResponse
-            {
-                Email = payload.Email,
-                FullName = payload.GivenName + " " + payload.FamilyName,
-            };
-
-            var exists = await _userRepository.ExistsAsync(request.Email);
-            if (exists)
-            {
-                return new BaseResponse
-                {
-                    Message = "Email already exists!!!",
-                    IsSuccessful = false
-                };
-            }
-
-            var role = await _roleRepository.GetAsync(r => r.Name.ToLower() == "patient");
-            if (role == null)
-            {
-                return new BaseResponse
-                {
-                    Message = "Role does not exists",
-                    IsSuccessful = false
-                };
-            }
-            var user = new User
-            {
-                Email = payload.Email,
-                FirstName = payload.GivenName,
-                LastName = payload.FamilyName,
-                DateCreated = DateTime.UtcNow,
-                IsDeleted = false,
-                RoleId = role.Id,
-                Role = role,
-                CreatedBy = "1"
-            };
-
-            role.Users.Add(user);
-            _roleRepository.Update(role);
-            var newUser = await _userRepository.AddAsync(user);
-
-           
-            await _unitOfWork.SaveAsync();
-
-            return new BaseResponse
-            {
-                Message = "User created successfully",
-                IsSuccessful = true
-            };
-        }
+        
 
         public async Task<BaseResponse<ICollection<UserResponse>>> GetAllUsers()
         {

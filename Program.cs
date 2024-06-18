@@ -6,7 +6,6 @@ using DaticianProj.Infrastructure.Context;
 using DaticianProj.Infrastructure.Repositories;
 using KonsumeTestRun.Core.Application.Interfaces.Repositories;
 using KonsumeTestRun.Infrastructure.Repositories;
-using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
@@ -96,12 +95,6 @@ builder.Services.AddAuthentication(options =>
     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
 })
 .AddCookie()
-.AddGoogle(options =>
-{
-    options.ClientId = builder.Configuration["GoogleKeys:ClientId"];
-    options.ClientSecret = builder.Configuration["GoogleKeys:ClientSecret"];
-    options.SaveTokens = true;
-})
 .AddJwtBearer(options =>
 {
     options.TokenValidationParameters = new TokenValidationParameters
