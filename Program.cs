@@ -1,118 +1,22 @@
 using DaticianProj;
-using DaticianProj.Core.Application.Interfaces.Repositories;
-using DaticianProj.Core.Application.Interfaces.Services;
-using DaticianProj.Core.Application.Services;
 using DaticianProj.Infrastructure.Context;
-using DaticianProj.Infrastructure.Repositories;
-using KonsumeTestRun.Core.Application.Interfaces.Repositories;
-using KonsumeTestRun.Infrastructure.Repositories;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
-using Microsoft.OpenApi.Models;
-using Project.Models.Entities;
-using System.Text;
+using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-builder.Services.AddControllers()
-    .AddJsonOptions(options =>
-    {
-        options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;
-        options.JsonSerializerOptions.WriteIndented = true;
-    });
-
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddCors(cors =>
-{
-    cors.AddPolicy("konsume", pol =>
-    {
-        pol.WithOrigins("https://konsume-v2.vercel.app")
-           .AllowAnyHeader()
-           .AllowAnyMethod()
-           .AllowCredentials();
-    });
-});
-
-builder.Services.AddSwaggerGen(c =>
-{
-    c.SwaggerDoc("v1", new OpenApiInfo { Title = "KONSUME", Version = "v1" });
-
-    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-    {
-        Description = "Please Enter a Valid Token",
-        Name = "Authorization",
-        In = ParameterLocation.Header,
-        Type = SecuritySchemeType.Http,
-        Scheme = "Bearer"
-    });
-
-    c.AddSecurityRequirement(new OpenApiSecurityRequirement
-    {
-        {
-            new OpenApiSecurityScheme
-            {
-                Reference = new OpenApiReference
-                {
-                    Type = ReferenceType.SecurityScheme,
-                    Id = "Bearer"
-                }
-            },
-            new string[] {}
-        }
-    });
-});
-
-builder.Services.ConfigureApplicationCookie(options =>
-{
-    options.Cookie.SameSite = SameSiteMode.None;
-    options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
-});
-
-builder.Services.Configure<EmailConfiguration>(builder.Configuration.GetSection("SMTPConfig"));
-builder.Services.AddDbContext<KonsumeContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
-
-builder.Services.AddTransient<IUserRepository, UserRepository>();
-builder.Services.AddTransient<IProfileRepository, ProfileRepository>();
-builder.Services.AddTransient<IRoleRepository, RoleRepository>();
-builder.Services.AddTransient<IVerificationCodeRepository, VerificationCodeRepository>();
-builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
-builder.Services.AddTransient<IIdentityService, IdentityService>();
-builder.Services.AddTransient<IUserService, UserService>();
-builder.Services.AddTransient<IRoleService, RoleService>();
-builder.Services.AddTransient<IProfileService, ProfileService>();
-builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-builder.Services.AddScoped<IUserInteractionService, UserInteractionService>();
-builder.Services.AddScoped<IVerificationCodeService, VerificationCodeService>();
-builder.Services.AddScoped<IEmailService, EmailService>();
-
-builder.Services.AddAuthentication(options =>
-{
-    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-    options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-})
-.AddCookie()
-.AddJwtBearer(options =>
-{
-    options.TokenValidationParameters = new TokenValidationParameters
-    {
-        ValidateIssuer = true,
-        ValidateAudience = true,
-        ValidateLifetime = true,
-        ValidateIssuerSigningKey = true,
-        ValidIssuer = builder.Configuration["Jwt:Issuer"],
-        ValidAudience = builder.Configuration["Jwt:Audience"],
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
-    };
-});
-
+// Add services to the container and configure the application.
+builder.Services.AddControllers();
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddSwaggerGen();
+builder.Services.AddDbContext<KonsumeContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+// Configure the application and specify the Startup class type.
 var app = builder.Build();
+var env = app.Environment;
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+if (env.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
@@ -136,4 +40,6 @@ app.UseAuthorization();
 app.UseMiddleware<ExceptionHndlingMiddleWare>();
 
 app.MapControllers();
+
 app.Run();
+

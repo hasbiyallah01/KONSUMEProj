@@ -97,7 +97,7 @@ namespace DaticianProj.Migrations
                             Id = 1,
                             AllergiesSerialized = "[]",
                             CreatedBy = "1",
-                            DateCreated = new DateTime(2024, 6, 17, 6, 54, 59, 994, DateTimeKind.Utc).AddTicks(687),
+                            DateCreated = new DateTime(2024, 6, 18, 16, 50, 34, 338, DateTimeKind.Utc).AddTicks(7479),
                             DateOfBirth = new DateTime(2008, 3, 19, 0, 0, 0, 0, DateTimeKind.Utc),
                             Gender = 2,
                             GoalsSerialized = "[]",
@@ -148,7 +148,7 @@ namespace DaticianProj.Migrations
                         {
                             Id = 1,
                             CreatedBy = "1",
-                            DateCreated = new DateTime(2024, 6, 17, 6, 54, 59, 867, DateTimeKind.Utc).AddTicks(1343),
+                            DateCreated = new DateTime(2024, 6, 18, 16, 50, 34, 194, DateTimeKind.Utc).AddTicks(5234),
                             IsDeleted = false,
                             Name = "Admin"
                         },
@@ -156,7 +156,7 @@ namespace DaticianProj.Migrations
                         {
                             Id = 2,
                             CreatedBy = "1",
-                            DateCreated = new DateTime(2024, 6, 17, 6, 54, 59, 867, DateTimeKind.Utc).AddTicks(1360),
+                            DateCreated = new DateTime(2024, 6, 18, 16, 50, 34, 194, DateTimeKind.Utc).AddTicks(5250),
                             IsDeleted = false,
                             Name = "Patient"
                         });
@@ -215,12 +215,12 @@ namespace DaticianProj.Migrations
                         {
                             Id = 1,
                             CreatedBy = "1",
-                            DateCreated = new DateTime(2024, 6, 17, 6, 54, 59, 867, DateTimeKind.Utc).AddTicks(1598),
+                            DateCreated = new DateTime(2024, 6, 18, 16, 50, 34, 194, DateTimeKind.Utc).AddTicks(5542),
                             Email = "oyebohm@gmail.com",
                             FirstName = "Hasbiy",
                             IsDeleted = false,
                             LastName = "Oyebo",
-                            Password = "$2a$10$AKrKryE.pfrV9ew3kFOvFeVjMd2yfxQbFLip23v9xGqLXRBwxz7j2",
+                            Password = "$2a$10$dbstJJ6KqsOjzpCMxmPi9ubLkfOxdupkaJbdjQ1K2pTkw5W4XcnZe",
                             RoleId = 1
                         });
                 });
