@@ -68,9 +68,7 @@ jobs:
     - name: Azure Login
       uses: azure/login@v1
       with:
-        client-id: ${{ secrets.__AZUREAPPSERVICE_CLIENTID_40E4C4B6AF50440787DF677B7C143F21__ }}
-        tenant-id: ${{ secrets.__AZUREAPPSERVICE_TENANTID_6109545B4BA84180BEA73D9C9A28423F__ }}
-        subscription-id: ${{ secrets.__AZUREAPPSERVICE_SUBSCRIPTIONID_8FF8D95FC48C4341BD9DA6139A7E6C2B__ }}
+       creds: ${{ secrets.AZURE_CREDENTIALS }}
     - name: Import API into Azure API Management
       run: az apim api import --path "${{ env.AZURE_APIM_RESOURCE_PATH }}" --resource-group "${{ env.AZURE_APIM_RESOURCEGROUP }}" --service-name "${{ env.AZURE_APIM_SERVICENAME }}" --api-id "${{ env.AZURE_APIM_API_ID }}" --service-url "${{ env.AZURE_APIM_APPSERVICEURL }}" --specification-path "${{ env.API_IMPORT_SPECIFICATION_PATH }}" --specification-format OpenApi --subscription-required false
     - name: logout
